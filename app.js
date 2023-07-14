@@ -15,7 +15,12 @@ app.set('view engine', 'ejs');
 app.set('views', 'pages');
 
 //Allow post request from forms to req.body
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
+
+//---------------------------------------------------------------
+
+//Serve Static Files
+app.use(express.static('assets'))
 
 //---------------------------------------------------------------
 
