@@ -9,3 +9,25 @@ body {
     background: #000;
     color: white;
 }
+
+:root {
+    --color1: #000000;
+    --color2: #D9D9D900;
+    --color3: #A7A0A0;
+    --color4: #000000;
+    --color5: #D9D9D9;
+    --color6: #A7A0A0;
+    --color7: #FFFFFF;
+    --color8: #D9D9D9;
+    --color9: #5A76BD;
+    --color10: #0000005C;
+    --color11: linear-gradient(193.05deg, rgba(0, 0, 0, 0) 62.87%, rgba(0, 0, 0, 0.252) 99.2%);
+    --color12: #5A76BD99;
+    --color13: #9747FF;
+    --color14: #4B4B4B;
+    --color15: #575757;
+    --color16: #D22727;
+    --color17: #F6362C;
+    --color18: #FFFFFF40;
+    
+}
