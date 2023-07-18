@@ -4,4 +4,8 @@ const showStorePage = (req, res) => {
     res.render('index');
 }
 
-module.exports = { showStorePage };
+const showProductPage = (req, res) => {
+    res.render('product')
+}
+
+module.exports = { showStorePage, showProductPage };
