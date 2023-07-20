@@ -4,6 +4,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Salsa&display=swap');
 
+@font-face {
+    font-family: sansation;
+    src: url(/assets/fonts/sansation/Sansation_Light.ttf);
+}
+
 /* Root Colors */
 :root {
     /* Colors */
@@ -69,6 +74,14 @@ article p {
     padding: var(--padding);
 }
 
+.scroll-icon {
+    margin-top: 30vh;
+    margin-left: 48%;
+    border: 1.5px solid var(--dark);
+    border-radius: 50%;
+    padding: 1rem;
+}
+
 .head {
     width: 95%;
     margin: auto;
@@ -108,7 +121,7 @@ article p {
     margin: calc(var(--padding) * 2) 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr 1fr 1fr; */
     gap: 60px 20px;
     grid-auto-flow: row;
 }
@@ -165,6 +178,7 @@ article p {
     top: 0;
     left: 0;
     width: 100%;
+    height: 70px;
     padding: var(--nav-padding);
     z-index: 3;
 }
