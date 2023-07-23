@@ -8,4 +8,8 @@ const showProductPage = (req, res) => {
     res.render('product')
 }
 
-module.exports = { showStorePage, showProductPage };
+const showCartPage = (req, res) => {
+    res.render('cart')
+}
+
+module.exports = { showStorePage, showProductPage, showCartPage };

@@ -211,19 +211,28 @@ article p {
 }
 
 .btn {
-    padding: 10px;
+    padding: 10px 5% 10px 5%;
     border: 1px solid var(--dark);
     outline: 0;
 }
 
 .btn-nobg {
     background: var(--color18);
+    margin: 2%;
 }
 
 .parent {
-    text-align: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 20px;
+}
+
+.cart-parent {
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
@@ -252,6 +261,33 @@ article p {
     font-size: 0.8em;
 }
 
+/* add to cart button */
+.atc {
+    margin-top: 20%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.pro-controls {
+    margin-top: 10%;
+    margin-left: 20%;
+}
+
+.pro-num {
+    margin: 2%;
+}
+
+.pro-cta {
+    display: block;
+}
+
+.cart-out {
+    margin-top: 10%;
+    margin-left: 5%;
+    padding-left: 20%;
+    padding-right: 20%;
+
+}
 
 
 
