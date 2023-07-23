@@ -210,6 +210,25 @@ article p {
     margin: 0 1vw;
 }
 
+.btn {
+    padding: 10px;
+    border: 1px solid var(--dark);
+    outline: 0;
+}
+
+.btn-nobg {
+    background: var(--color18);
+}
+
+.parent {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+}
+
 .footer {
     padding: calc(var(--padding) * 2) 0;
     background-color: var(--light-gray);

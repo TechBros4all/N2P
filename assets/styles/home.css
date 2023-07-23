@@ -40,3 +40,7 @@
 .about {
     padding-bottom: 10vh;
 }
+
+.about h2 {
+    margin-bottom: 10px;
+}
