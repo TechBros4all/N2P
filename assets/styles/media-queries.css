@@ -1,0 +1,14 @@
+@media screen and (max-width: 767px) {
+    .cart-parent {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .delete-item {
+        display: none;
+    }
+
+    .delete-item-mob {
+        display: inline;
+    }
+}

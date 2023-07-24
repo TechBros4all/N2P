@@ -238,6 +238,7 @@ article p {
     grid-template-rows: 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
+    margin-bottom: 5%;
 }
 
 .footer {
@@ -284,14 +285,15 @@ article p {
 }
 
 .cart-out {
-    margin-top: 10%;
-    margin-left: 5%;
+    margin: 10% 5% 10% 0;
     padding-left: 20%;
     padding-right: 20%;
 
 }
 
-
+.delete-item-mob {
+    display: none;
+}
 
 
 @media (max-width: 650px) {
