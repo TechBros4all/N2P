@@ -211,7 +211,7 @@ article p {
 }
 
 .btn {
-    padding: 10px 5% 10px 5%;
+    padding: 10px 3% 10px 3%;
     border: 1px solid var(--dark);
     outline: 0;
     color: var(--dark);
@@ -266,7 +266,7 @@ article p {
 
 /* add to cart button */
 .atc {
-    margin-top: 20%;
+    margin-top: 15%;
     padding-left: 10%;
     padding-right: 10%;
 }
@@ -295,6 +295,35 @@ article p {
     display: none;
 }
 
+@media screen and (max-width: 767px) {
+    .cart-parent {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .delete-item {
+        display: none;
+    }
+
+    .delete-item-mob {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .pro-controls {
+        margin-top: 5%;
+        margin-left: 10%;
+    }
+
+    .btn {
+        padding: 3px;
+    }
+
+    .atc {
+        margin-top: 10%;
+    }
+}
 
 @media (max-width: 650px) {
     .navbar nav ul li:nth-child(1) {
