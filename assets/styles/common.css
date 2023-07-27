@@ -231,6 +231,10 @@ article p {
     grid-row-gap: 20px;
 }
 
+.parent-mob {
+    display: none;
+}
+
 .cart-parent {
     text-align: left;
     display: grid;
@@ -310,6 +314,12 @@ article p {
     }
 }
 
+@media screen and (max-width: 726px) {
+    .parent {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 540px) {
     .pro-controls {
         margin-top: 5%;
@@ -343,6 +353,14 @@ article p {
     .foot-rights.row {
         flex-direction: column;
         align-items: center;
+    }
+
+    .parent-mob {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 10px;
+        grid-row-gap: 20px;
     }
 }
 
