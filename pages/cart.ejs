@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <%- include('partials/header') %>
         <link rel="stylesheet" href="styles/home.css">
-        <link rel="stylesheet" href="styles/media-queries.css">
 </head>
 
 <body>
@@ -23,23 +22,24 @@
                                     <img src="/images/col (<%= i %>).png" alt="image">
                                 </div>
                             </div>
-                            <a href=""><i class="fa-solid fa-trash rem-mob"></i></a>
                             <button class="btn cart-out"><a href="">Buy Now</a></button>
                             <% } %>
-                    </section>
-                    <div class="pro-controls">
-                        <h3>Black Tee's</h3>
-                        <p>$10,000</p>
-                        <br>
-                        <div>
-                            <button class="btn"><i class="fa-solid fa-minus"></i></button>
-                            <span class="pro-num">1</span>
-                            <button class="btn"><i class="fa-solid fa-plus"></i></button>
+                        </section>
+                        <div class="pro-controls">
+                            <h3>Black Tee's</h3>
+                            <p>$10,000</p>
+                            <br>
+                            <div>
+                                <button class="btn"><i class="fa-solid fa-minus"></i></button>
+                                <span class="pro-num">1</span>
+                                <button class="btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <hr>
-            </section>
+                    <button class="btn cart-out-mob"><a href="">Buy Now</a></button>
+                    <br>
+                    <hr>
+                </section>
         </main>
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
         <%- include('partials/footer') %>
