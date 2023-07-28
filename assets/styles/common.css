@@ -37,6 +37,10 @@
 
 }
 
+h3 {
+    font-family: Salsa;
+}
+
 /* Styles */
 
 * {
@@ -211,6 +215,7 @@ article p {
 }
 
 .btn {
+    font-family: sansation;
     padding: 10px 3% 10px 3%;
     border: 1px solid var(--dark);
     outline: 0;
@@ -270,6 +275,7 @@ article p {
 
 /* add to cart button */
 .atc {
+    font-family: prompt;
     margin-top: 15%;
     padding-left: 10%;
     padding-right: 10%;
@@ -289,6 +295,7 @@ article p {
 }
 
 .cart-out {
+    font-family: prompt;
     margin: 10% 5% 10% 0;
     padding-left: 20%;
     padding-right: 20%;
@@ -327,7 +334,7 @@ article p {
     }
 
     .btn {
-        padding: 3px;
+        padding: 3px 5px;
     }
 
     .atc {
