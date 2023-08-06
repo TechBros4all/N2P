@@ -165,8 +165,8 @@ article p {
 
 .pro button {
     text-transform: uppercase;
-    padding: 8px 20px;
-    font-weight: 600;
+    padding: 6px 20px;
+    font-weight: 500;
     background-color: var(--light-gray);
     border: none;
 }
@@ -410,6 +410,10 @@ article p {
     .img-here img {
         max-width: 300px;
         margin: auto;
+    }
+
+    .navbar nav li:last-child {
+        display: none;
     }
 }
 
