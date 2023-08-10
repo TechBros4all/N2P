@@ -1,3 +1,11 @@
+// page load
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        window.scrollTo(0, 0)
+    }, 1000);
+
+});
+
 // swap favicon for light and dark mode
 var lightSchemeIcon = document.getElementById('light-scheme-icon');
 var darkSchemeIcon = document.getElementById('dark-scheme-icon');
@@ -13,4 +21,4 @@ function onUpdate() {
         darkSchemeIcon.parentNode.removeChild(darkSchemeIcon);
         document.head.append(lightSchemeIcon);
     }
-}
+};

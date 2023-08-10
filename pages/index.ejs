@@ -13,7 +13,8 @@
 
         <main class="container">
             <section class="hero">
-                <svg width="1280" height="973" viewBox="0 0 1280 973" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="hero-svg width=" 1280" height="973" viewBox="0 0 1280 973" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
                     <rect width="705.953" height="1616.36" rx="13"
                         transform="matrix(-0.665972 -0.745977 -0.745977 0.665972 1397.91 -98.3755)"
                         fill="url(#paint0_linear_0_1)" fill-opacity="0.22" />
@@ -38,7 +39,14 @@
                         <h2>Start shopping with us</h2>
                     </div>
                 </div>
-                <i class="fa-solid fa-arrow-down scroll-icon"></i>
+                <button class="scroll-icon" id="scroll-icon">
+                    <svg height="1.2em" class="arrow" viewBox="0 0 512 512">
+                        <path
+                            d="M233.4 416.6c12.5 12.5 32.8 12.5 45.3 0l192 -192c12.5 -12.5 12.5 -32.8 0 -45.3s-32.8 -12.5 -45.3 0L256 346.7 86.6 177.4c-12.5 -12.5 -32.8 -12.5 -45.3 0s-12.5 32.8 0 45.3l192 192z">
+                        </path>
+
+                    </svg>
+                </button>
             </section>
             <section class="featured page">
                 <div class="head">
@@ -90,6 +98,7 @@
         </main>
 
         <script src="/scripts/common.js"></script>
+        <script src="/scripts/home.js"></script>
 </body>
 
 </html>
