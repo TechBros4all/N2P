@@ -52,6 +52,9 @@ h3 {
 }
 
 body {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
   scroll-behavior: smooth;
   background: var(--light);
   color: var(--dark);
@@ -227,7 +230,7 @@ article p {
   display: none;
 }
 
-.navbar nav ul li:nth-child(2) {
+.navbar nav ul li:nth-child(2) a {
   font-family: "Satisfy", sans-serif;
   color: var(--blue);
   font-size: 1.5em;
