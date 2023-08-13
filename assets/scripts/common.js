@@ -22,3 +22,19 @@ function onUpdate() {
         document.head.append(lightSchemeIcon);
     }
 };
+
+
+// mobile-nav
+const bars = document.getElementById('bars');
+const mobNav = document.getElementById('mobNav');
+const xMark = document.getElementById('xMark');
+const body = document.body;
+bars.addEventListener('click', ()=> {
+    body.classList = 'add'
+    mobNav.style.left = '0%'
+});
+
+xMark.addEventListener('click', ()=> {
+    body.classList.remove("add")
+    mobNav.style.left = '-80%'
+});
