@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const clientRoutes = require('./routes/clientRoutes');
 // use connection to database
-const connection = require('./models/connection');
+// const connection = require('./models/connection');
 
 //Initialize the app and define a port
 const app = express();

@@ -1,6 +1,6 @@
-const connection = require("./connection");
-const pluralize = require('pluralize');
+// const connection = require("./connection");
+// const pluralize = require('pluralize');
 
-class model {
+// class model {
     
-}
+// }
