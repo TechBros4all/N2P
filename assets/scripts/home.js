@@ -16,7 +16,7 @@
 
 const scroller = document.getElementById('scroll-icon');
 scroller.addEventListener('click', () => {
-    const targetScrollY = window.matchMedia('(max-width: 991px)').matches ? 550 : 650;
+    const targetScrollY = window.matchMedia('(max-width: 991px)').matches ? 700 : 650;
     const duration = 1000; // Animation duration in milliseconds
     const startTime = performance.now();
     const startScrollY = window.scrollY || window.pageYOffset;

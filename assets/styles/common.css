@@ -469,6 +469,9 @@ article p {
 }
 
 @media (max-width: 500px) {
+  .nomob {
+    display: none;
+  }
   .foot-rights.row {
     flex-direction: column;
     align-items: center;
