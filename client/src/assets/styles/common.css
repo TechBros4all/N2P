@@ -2,11 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Salsa&display=swap");
-
-@font-face {
-  font-family: sansation;
-  src: url(../fonts/Sansation_Light.ttf);
-}
+@import url('https://fonts.cdnfonts.com/css/sansation');
 
 /* Root Colors */
 :root {
@@ -25,11 +21,9 @@
   --color3: #a7a0a0;
   --color4: #000000;
   --color10: #0000005c;
-  --color11: linear-gradient(
-    193.05deg,
-    rgba(0, 0, 0, 0) 62.87%,
-    rgba(0, 0, 0, 0.252) 99.2%
-  );
+  --color11: linear-gradient(193.05deg,
+      rgba(0, 0, 0, 0) 62.87%,
+      rgba(0, 0, 0, 0.252) 99.2%);
   --color12: #5a76bd99;
   --color13: #9747ff;
   --color14: #4b4b4b;
@@ -59,6 +53,7 @@ body {
   background: var(--light);
   color: var(--dark);
   font-family: "Prompt", sans-serif;
+
 }
 
 a {
@@ -472,6 +467,7 @@ article p {
   .nomob {
     display: none;
   }
+
   .foot-rights.row {
     flex-direction: column;
     align-items: center;
