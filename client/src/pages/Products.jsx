@@ -139,3 +139,5 @@ export const Products = () => {
     </main>
   );
 };
+
+export default Products;
