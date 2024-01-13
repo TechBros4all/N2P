@@ -1,12 +1,13 @@
 import {
   FaBars,
   FaHeart,
-  FaSearch,
+  // FaSearch,
   FaShoppingBag,
   FaUser,
 } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import { useState } from "react";
+import logo from "/images/N2P_LOGO.png";
 
 // scroll to top on page refresh/load
 window.addEventListener("load", () => {
@@ -39,8 +40,16 @@ const Navbar = () => {
                 <FaBars />
               </i>
             </li>
-            <li>
-              <a href="/">Nth 2 Prove</a>
+            <li
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginTop: "-10px",
+              }}
+            >
+              <a href="/">
+                <img src={logo} alt="" style={{ width: "80px" }} />
+              </a>
             </li>
             <li>
               <a href="/">home</a>
@@ -52,9 +61,9 @@ const Navbar = () => {
               <i>
                 <FaHeart />
               </i>
-              <i className="nomob">
+              {/* <i className="nomob">
                 <FaSearch />
-              </i>
+              </i> */}
               <a href="/cart">
                 <i>
                   <FaShoppingBag />

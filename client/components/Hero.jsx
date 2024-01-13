@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+// import logo from "/images/N2P_LOGO.png";
 const handleScroll = () => {
   const targetScrollY = window.matchMedia("(max-width: 991px)").matches
     ? 700
@@ -79,8 +80,9 @@ const Hero = () => {
         </svg>
         <div className="hero-text">
           <div className="hero-text-box">
-            <h1>nth 2 prove</h1>
-            <h2>Start shopping with us</h2>
+            {/* <h1>nth 2 prove</h1>
+            <h2>Start shopping with us</h2> */}
+            {/* <img src={logo} alt="logo" /> */}
           </div>
         </div>
         <button className="scroll-icon" id="scroll-icon" onClick={handleScroll}>
