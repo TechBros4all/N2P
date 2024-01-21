@@ -2,18 +2,16 @@
 const { Router } = require('express');
 
 //Define dependencies
-const { showStorePage, showProductPage, showCartPage } = require('../controllers/clientControllers');
+const { getProducts } = require('../controllers/clientControllers');
 
 
 //Initialize router
 const router = Router();
 
 //App routes
-router.get('/', showStorePage);
+router.get('/get-products', getProducts);
 
-router.get('/product', showProductPage);
-
-router.get('/cart', showCartPage);
+getProducts();
 
 //Export the route for access form the app
 module.exports = router;

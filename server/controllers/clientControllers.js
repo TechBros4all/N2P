@@ -1,15 +1,20 @@
-//This page contains the logic of the backend
+const fs = require("fs").promises;
+const path = require('path');
 
-const showStorePage = (req, res) => {
-    res.render('index');
+const getProducts = async (req, res) => {
+    const imageDir = path.resolve(__dirname, "..", "..", "client", "public", "images", "products");
+
+    try {
+        const files = await fs.readdir(imageDir);
+        const images = [];
+        
+        for (const file in files) images.push(path.resolve(imageDir, files[file]))
+
+        return images
+    } catch (error) {
+        console.log("Error getting product images");
+        return [];
+    }
 }
 
-const showProductPage = (req, res) => {
-    res.render('product')
-}
-
-const showCartPage = (req, res) => {
-    res.render('cart')
-}
-
-module.exports = { showStorePage, showProductPage, showCartPage };
+module.exports = { getProducts };
