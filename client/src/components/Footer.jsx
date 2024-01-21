@@ -1,5 +1,7 @@
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa6";
 
+const year = new Date().getFullYear();
+
 const Footer = () => {
   return (
     <section className="footer">
@@ -22,9 +24,9 @@ const Footer = () => {
       </div>
       <div className="foot-rights head-none row">
         <a>
-          <i className="fa-solid fa-copyright"></i> nth2prove 2023
+          <i className="fa-solid fa-copyright"></i> nth2prove {year}
         </a>
-        <a href="https://github.com/TechBros4all">code by techbros</a>
+        <a href="mailto:techbrosforall@gmail.com">Powered by techbros</a>
         <a href="">designed by N2P</a>
       </div>
     </section>

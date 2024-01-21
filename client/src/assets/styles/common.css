@@ -256,7 +256,7 @@ article p {
 
 .parent {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
   grid-column-gap: 10px;
   grid-row-gap: 20px;
@@ -302,7 +302,7 @@ article p {
 /* add to cart button */
 .atc {
   font-family: prompt;
-  margin-top: 15%;
+  /* margin-top: 15%  ; */
   padding-left: 10%;
   padding-right: 10%;
 }
@@ -318,6 +318,7 @@ article p {
 
 .pro-cta {
   display: block;
+  margin-left: -20%;
 }
 
 .cart-out {
@@ -332,21 +333,15 @@ article p {
 
 .img-here {
   position: relative;
+  max-width: 30vw;
 }
 
 .del-icon {
-  position: absolute;
-  top: 5%;
-  left: 5%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  background: var(--dark);
+  margin-left: 5%;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .cart-out-mob {
@@ -394,12 +389,24 @@ article p {
   overflow: hidden;
 }
 
+.x-mark {
+  border: none;
+  outline: none;
+}
+
 @media screen and (max-width: 768px) {
-  .del-icon {
-    width: 25px;
-    height: 25px;
-    top: 3%;
-    left: 3%;
+
+  .img-here {
+    max-width: fit-content;
+  }
+
+  .pro-cta {
+    margin-left: 0;
+  }
+
+  .atc {
+    margin-top: 5px;
+    width: 30vw;
   }
 }
 
@@ -436,7 +443,6 @@ article p {
 
   .atc {
     margin-top: 10%;
-    width: 30vw;
   }
 
   .cart-out {
@@ -501,13 +507,8 @@ article p {
   }
 }
 
-@media (max-width: 285px) {
+@media (max-width: 320px) {
   .atc {
-    width: auto;
-  }
-
-  .del-icon {
-    width: 21px;
-    height: 21px;
+    width: 38vw;
   }
 }

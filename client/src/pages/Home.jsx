@@ -1,11 +1,11 @@
 import About from "../../components/About";
 import FeaturedProducts from "../../components/FeaturedProducts";
-import Hero from "../../components/Hero";
+// import Hero from "../../components/Hero";
 
 const Home = () => {
   return (
-    <div>
-      <Hero />
+    <div style={{ marginTop: "5rem" }}>
+      {/* <Hero /> */}
       <FeaturedProducts />
       <About />
     </div>

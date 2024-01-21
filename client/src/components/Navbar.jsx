@@ -1,9 +1,9 @@
 import {
   FaBars,
-  FaHeart,
+  // FaHeart,
   // FaSearch,
   FaShoppingBag,
-  FaUser,
+  // FaUser,
 } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import { useState } from "react";
@@ -53,14 +53,14 @@ const Navbar = () => {
             </li>
             <li>
               <a href="/">home</a>
-              <a href="/">tees</a>
-              <a href="/">pants</a>
-              <a href="/">hats</a>
+              {/* <a href="/">tees</a> */}
+              {/* <a href="/">pants</a> */}
+              {/* <a href="/">hats</a> */}
             </li>
             <li>
-              <i>
+              {/* <i>
                 <FaHeart />
-              </i>
+              </i> */}
               {/* <i className="nomob">
                 <FaSearch />
               </i> */}
@@ -69,9 +69,9 @@ const Navbar = () => {
                   <FaShoppingBag />
                 </i>
               </a>
-              <i>
+              {/* <i>
                 <FaUser />
-              </i>
+              </i> */}
             </li>
           </ul>
           <div
@@ -84,9 +84,10 @@ const Navbar = () => {
             </i>
             <li>
               <a href="/">home</a>
-              <a href="/">tees</a>
-              <a href="/">pants</a>
-              <a href="/">hats</a>
+              {/* <a href="/">tees</a> */}
+              {/* <a href="/">pants</a> */}
+              <a href="/cart">Cart</a>
+              {/* <a href="/">hats</a> */}
             </li>
           </div>
         </nav>
