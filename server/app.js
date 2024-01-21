@@ -1,7 +1,8 @@
 //Require dependencies
-require('dotenv').config();
-const express = require('express');
-const clientRoutes = require('./routes/clientRoutes');
+require("dotenv").config();
+const express = require("express");
+const clientRoutes = require("./routes/clientRoutes");
+const cors = require("cors");
 // use connection to database
 // const connection = require('./models/connection');
 
@@ -13,21 +14,22 @@ const port = process.env.PORT || 4000;
 //---------------------------------------------------------------
 
 //Ejs
-app.set('view engine', 'ejs');
-app.set('views', 'pages');
+// app.set("view engine", "ejs");
+// app.set("views", "pages");
 
 //Allow post request from forms to req.body
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cors());
 //---------------------------------------------------------------
 
 //Serve Static Files
-app.use(express.static('assets'))
+app.use(express.static("assets"));
 
 //---------------------------------------------------------------
 
 //App routes
-app.use(clientRoutes)
+app.use(clientRoutes);
 
-
-app.listen(port, (err) => console.log(err || `Visit http://localhost:${port}/`))
+app.listen(port, (err) =>
+  console.log(err || `Visit http://localhost:${port}/`)
+);

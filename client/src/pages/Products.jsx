@@ -1,20 +1,43 @@
 // import { FaMinus, FaPlus } from "react-icons/fa6";
 import "swiper/css";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 /* eslint-disable react/no-unescaped-entities */
 export const Products = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/get-products");
+        console.log(response.data);
+        setProducts(response.data);
+      } catch (error) {
+        console.log("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
   return (
     <main className="container">
       <section className="hero">
         <div className="parent">
           <section>
-            {[...Array(1).keys()].map((i) => (
+            {/* {[...Array(1).keys()].map((i) => (
               <div className="cols-cont" key={i}>
                 <div className="img-here">
                   <img
                     src={`/images/col (${i + 1}).png`}
                     alt={`image ${i + 1}`}
                   />
+                </div>
+              </div>
+            ))} */}
+            {products.map((product, index) => (
+              <div className="cols-cont" key={index}>
+                <div className="img-here">
+                  <img src={product} alt={`image ${index}`} />
                 </div>
               </div>
             ))}
