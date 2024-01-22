@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>N2P(Nothing To Prove)</title>
+    <%- include('partials/header') %>
+        <link rel="stylesheet" href="styles/home.css">
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+
+        <main class="container">
+            <section class="hero">
+                <svg class="hero-svg width=" 1280" height="973" viewBox="0 0 1280 973" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <rect width="705.953" height="1616.36" rx="13"
+                        transform="matrix(-0.665972 -0.745977 -0.745977 0.665972 1397.91 -98.3755)"
+                        fill="url(#paint0_linear_0_1)" fill-opacity="0.22" />
+                    <rect x="-140" y="-105.118" width="681.119" height="1642.98" rx="13"
+                        transform="rotate(-48.8509 -140 -105.118)" fill="url(#paint1_linear_0_1)" fill-opacity="0.22" />
+                    <defs>
+                        <linearGradient id="paint0_linear_0_1" x1="-64.2598" y1="842.903" x2="-363.802" y2="1407.23"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-opacity="0.09" />
+                            <stop offset="1" stop-opacity="0.9" />
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_0_1" x1="-201.999" y1="751.667" x2="-515.205" y2="1311.76"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-opacity="0.09" />
+                            <stop offset="1" stop-opacity="0.9" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="hero-text">
+                    <div class="hero-text-box">
+                        <h1>nth 2 prove</h1>
+                        <h2>Start shopping with us</h2>
+                    </div>
+                </div>
+                <button class="scroll-icon" id="scroll-icon">
+                    <svg height="1.2em" class="arrow" viewBox="0 0 512 512">
+                        <path
+                            d="M233.4 416.6c12.5 12.5 32.8 12.5 45.3 0l192 -192c12.5 -12.5 12.5 -32.8 0 -45.3s-32.8 -12.5 -45.3 0L256 346.7 86.6 177.4c-12.5 -12.5 -32.8 -12.5 -45.3 0s-12.5 32.8 0 45.3l192 192z">
+                        </path>
+
+                    </svg>
+                </button>
+            </section>
+            <section class="featured page">
+                <div class="head">
+                    <h1>featured products</h1>
+                </div>
+                <div class="cols">
+                    <% for( let i=1; i < 7; i++ ) { %>
+                        <div class="cols-cont">
+                            <div class="img-here">
+                                <img src="/images/col (<%= i %>).png" alt="image">
+                            </div>
+                            <div class="cols-text pro row">
+                                <div>
+                                    <h1>product name</h1>
+                                    <h2>$ 10,000</h2>
+                                </div>
+                                <div class="row">
+                                    <i class="fa-solid fa-heart"></i>
+                                </div>
+                            </div>
+                            <div class="cols-text pro row">
+                                <button><a href="/product">buy</a></button>
+                                <i class="fa-solid fa-shopping-bag"></i>
+                            </div>
+                        </div>
+                        <% } %>
+                </div>
+            </section>
+            <section class="about">
+                <div class="head head-rev">
+                    <h1>about us</h1>
+                    <img src="/images/N2P_LOGO.png" alt="logo" width="150">
+                </div>
+                <article>
+                    <p>N2P(Nothing To Prove)is a Nigerian Based clothing brand that embodies confidence, individuality,
+                        Creativity,Quality and Self expression The brand's name conveys the idea that true style and
+                        personal worth do not need “validation”from others. It celebrates the authenticity and
+                        uniqueness of each individual, encouraging people to embrace their own sense of fashion.</p>
+                </article>
+                <div class="gap"></div>
+                <div class="head head-none">
+                    <h1>contact us</h1>
+                    <p><i class="fa-solid fa-envelope"></i> <a href="mailto: info@nth2prove.com">info@nth2prove.com</a>
+                    </p>
+                    <p><i class="fa-solid fa-phone"></i> <a href="tel: +234912345678">+234-912-345-678</a></p>
+                </div>
+            </section>
+            <%- include('partials/footer') %>
+        </main>
+
+        <script src="/scripts/common.js"></script>
+        <script src="/scripts/home.js"></script>
+</body>
+
+</html>
