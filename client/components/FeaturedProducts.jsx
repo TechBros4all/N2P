@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 
-const FeaturedProducts = () => {
+const FeaturedProducts = ({ onSelectedProduct }) => {
   const [productData, setProductData] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -17,9 +18,16 @@ const FeaturedProducts = () => {
 
     fetchData();
   }, []);
-  const handleBuyClick = (imageName) => {
-    setSelectedProduct(imageName);
+  const handleBuyClick = () => {
+    // Assuming selectedProductData is available or you can retrieve it from somewhere
+    const selectedProductData = productData.find(
+      (product) => product.imagePath === selectedProduct
+    );
+    setSelectedProduct(selectedProductData);
+    onSelectedProduct(selectedProductData);
+    console.log(selectedProductData);
   };
+
   return (
     <div>
       <section className="featured page">
@@ -46,8 +54,8 @@ const FeaturedProducts = () => {
                   </div>
                 </div>
                 <div className="cols-text pro row">
-                  <button onClick={() => handleBuyClick(imageName)}>
-                    <a href="/product">buy</a>
+                  <button onClick={() => handleBuyClick(imagePath)}>
+                    <a>buy</a>
                   </button>
                   <i className="fa-solid fa-shopping-bag"></i>
                 </div>

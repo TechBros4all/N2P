@@ -1,24 +1,26 @@
 // import { FaMinus, FaPlus } from "react-icons/fa6";
 /* eslint-disable react/no-unescaped-entities */
 import "swiper/css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 
-const Products = () => {
+const Products = ({ selectedProduct }) => {
   const [productData, setProductData] = useState(null);
+  console.log(selectedProduct);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("http://localhost:4000/get-products");
-        const data = await response.json();
-        setProductData(data);
-      } catch (error) {
-        console.error("Error fetching product data:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch("http://localhost:4000/get-products");
+  //       const data = await response.json();
+  //       setProductData(data);
+  //     } catch (error) {
+  //       console.log("Error fetching product data:", error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
   return (
     <main className="container">
       <section className="hero">
@@ -28,7 +30,14 @@ const Products = () => {
               Object.entries(productData).map(([imageName, imagePath]) => (
                 <div className="cols-cont" key={imageName}>
                   <div className="img-here">
-                    <img src={imagePath} alt={imageName} />
+                    <img
+                      src={
+                        selectedProduct === imagePath
+                          ? selectedProduct
+                          : imagePath
+                      }
+                      alt={imageName}
+                    />
                   </div>
                 </div>
               ))}
@@ -110,3 +119,6 @@ const Products = () => {
 };
 
 export default Products;
+Products.propTypes = {
+  selectedProduct: PropTypes.string,
+};
