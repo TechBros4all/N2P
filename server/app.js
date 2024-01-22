@@ -23,7 +23,7 @@ app.use(cors());
 //---------------------------------------------------------------
 
 //Serve Static Files
-app.use(express.static("assets"));
+app.use(express.static("/home/samuel/Documents/code/N2P/client/public"));
 
 //---------------------------------------------------------------
 

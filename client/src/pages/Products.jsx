@@ -1,46 +1,37 @@
 // import { FaMinus, FaPlus } from "react-icons/fa6";
+/* eslint-disable react/no-unescaped-entities */
 import "swiper/css";
-import axios from "axios";
 import { useEffect, useState } from "react";
 
-/* eslint-disable react/no-unescaped-entities */
-export const Products = () => {
-  const [products, setProducts] = useState([]);
+const Products = () => {
+  const [productData, setProductData] = useState(null);
+
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/get-products");
-        console.log(response.data);
-        setProducts(response.data);
+        const response = await fetch("http://localhost:4000/get-products");
+        const data = await response.json();
+        setProductData(data);
       } catch (error) {
-        console.log("Error fetching products:", error);
+        console.error("Error fetching product data:", error);
       }
     };
 
-    fetchProducts();
+    fetchData();
   }, []);
   return (
     <main className="container">
       <section className="hero">
         <div className="parent">
           <section>
-            {/* {[...Array(1).keys()].map((i) => (
-              <div className="cols-cont" key={i}>
-                <div className="img-here">
-                  <img
-                    src={`/images/col (${i + 1}).png`}
-                    alt={`image ${i + 1}`}
-                  />
+            {productData &&
+              Object.entries(productData).map(([imageName, imagePath]) => (
+                <div className="cols-cont" key={imageName}>
+                  <div className="img-here">
+                    <img src={imagePath} alt={imageName} />
+                  </div>
                 </div>
-              </div>
-            ))} */}
-            {products.map((product, index) => (
-              <div className="cols-cont" key={index}>
-                <div className="img-here">
-                  <img src={product} alt={`image ${index}`} />
-                </div>
-              </div>
-            ))}
+              ))}
           </section>
           <div className="pro-cta">
             <div>
@@ -64,7 +55,7 @@ export const Products = () => {
         </div>
         <div className="parent-mob">
           <section>
-            {[...Array(1).keys()].map((i) => (
+            {/* {[...Array(1).keys()].map((i) => (
               <div className="cols-cont" key={i}>
                 <div className="img-here">
                   <img
@@ -73,7 +64,7 @@ export const Products = () => {
                   />
                 </div>
               </div>
-            ))}
+            ))} */}
           </section>
           <div className="pro-controls">
             <h3>Black Tee's</h3>
