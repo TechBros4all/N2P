@@ -1,52 +1,33 @@
+import { Link } from "react-router-dom";
 import logo from "/images/N2P_LOGO.png";
+import { FaHome } from "react-icons/fa";
 const Navbar = () => {
   return (
     <div>
-      <div className="navbar xl:px-24 py-4">
+      <div className="navbar xl:px-24 py-4 flex items-center justify-between">
         <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow  "
-            >
-              <li>
-                <a>Home</a>
-              </li>
-            </ul>
+          <div className="btn btn-ghost btn-circle">
+            <Link to={"/"} className="ml-3 md:ml-0 text-black text-2xl">
+              <FaHome />
+            </Link>
           </div>
-          <a className="w-20 cursor-pointer">
-            <img src={logo} alt="log" />
-          </a>
         </div>
+        <a className="w-20 cursor-pointer">
+          <img src={logo} alt="logo" />
+        </a>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          {/* <ul className="menu menu-horizontal px-1">
             <li className="text-lg">
-              <a>Home</a>
+              <Link>Home</Link>
             </li>
-          </ul>
+          </ul> */}
         </div>
         <div className="navbar-end">
-          <a>
+          <Link to={"/cart"}>
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle"
+              className="btn btn-ghost btn-circle text-black"
             >
               <div className="indicator">
                 <svg
@@ -66,7 +47,7 @@ const Navbar = () => {
                 <span className="badge badge-sm indicator-item">{8}</span>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

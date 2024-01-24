@@ -4,11 +4,9 @@ import Footer from "../pages/components/Footer";
 
 const Main = () => {
   return (
-    <div>
+    <div className="text-black">
       <NavBar />
-      <div className="flex flex-col h-screen">
-        <Outlet />
-      </div>
+      <Outlet />
       <Footer />
     </div>
   );
