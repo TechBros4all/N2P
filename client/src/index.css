@@ -3,6 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
 body {
     font-family: prompt, sans-serif;
 }

@@ -12,6 +12,7 @@
         "name": "Red Tees",
         "image": "https://i.ibb.co/HFZrs5W/col-1.png",
         "color" : "Black",
+        "size": ["S", "M", "L", "XL", "XXL"],
         "price": 95
     },
     {
@@ -19,6 +20,7 @@
         "name": "Blue Tees",
         "image": "https://i.ibb.co/T2g3VBF/col-2.png",
         "color" : "Black",
+        "size": ["S", "M", "L", "XL", "XXL"],
         "price": 95
     },
     {
@@ -26,6 +28,7 @@
         "name": "White Tees",
         "image": "https://i.ibb.co/Rh5cRvf/col-3.png",
         "color" : "Black",
+        "size": ["S", "M", "L", "XL", "XXL"],
         "price": 95
     },
     {
@@ -33,6 +36,7 @@
         "name": "Yellow Tees",
         "image": "https://i.ibb.co/HFZrs5W/col-1.png",
         "color" : "Black",
+        "size": ["S", "M", "L", "XL", "XXL"],
         "price": 95
     },
     {
@@ -40,6 +44,7 @@
         "name": "Green Tees",
         "image": "https://i.ibb.co/T2g3VBF/col-2.png",
         "color" : "Black",
+        "size": ["S", "M", "L", "XL", "XXL"],
         "price": 95
     },
     {
@@ -47,6 +52,7 @@
         "name": "Purple Tees",
         "image": "https://i.ibb.co/9TpCk36/col-7.png",
         "color" : "Black",
+        "size": ["S", "M", "L", "XL", "XXL"],
         "price": 95
     }
 ]
