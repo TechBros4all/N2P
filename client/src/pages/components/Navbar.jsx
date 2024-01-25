@@ -12,9 +12,9 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-        <a className="w-20 cursor-pointer">
+        <Link to={"/"} className="w-20 cursor-pointer">
           <img src={logo} alt="logo" />
-        </a>
+        </Link>
         <div className="navbar-center hidden lg:flex">
           {/* <ul className="menu menu-horizontal px-1">
             <li className="text-lg">
