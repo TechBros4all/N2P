@@ -1,12 +1,17 @@
 import { Link } from "react-router-dom";
 import logo from "/images/N2P_LOGO.png";
-import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaGoogle, FaHome } from "react-icons/fa";
 
 const Signup = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-200 text-black">
       <div className="bg-white p-8 rounded shadow-md max-w-sm w-full">
-        <img src={logo} alt="logo" className="w-10 mb-2" />
+        <div className="flex justify-between my-3">
+          <img src={logo} alt="logo" className="w-10" />
+          <Link to={"/"}>
+            <FaHome />
+          </Link>
+        </div>
         <h2 className="text-3xl font-extrabold mb-4">Signup</h2>
         <form method="post">
           <div className="mb-4">

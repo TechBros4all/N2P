@@ -1,12 +1,17 @@
 import { Link } from "react-router-dom";
 import logo from "/images/N2P_LOGO.png";
-import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaGoogle, FaHome } from "react-icons/fa";
 
 const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-200 text-black">
       <div className="bg-white p-8 rounded shadow-md max-w-sm w-full">
-        <img src={logo} alt="logo" className="w-10" />
+        <div className="flex justify-between my-3">
+          <img src={logo} alt="logo" className="w-10" />
+          <Link to={"/"}>
+            <FaHome />
+          </Link>
+        </div>
         <h2 className="text-3xl font-extrabold mb-4">Login</h2>
         <form method="post">
           <div className="mb-4">
@@ -57,6 +62,9 @@ const Login = () => {
             </p>
           </div>
           <div className="text-center space-x-3 mb-5">
+            <div className="my-5">
+              <p>OR</p>
+            </div>
             <button className="btn btn-circle" onClick={console.log("Login")}>
               <FaGoogle />
             </button>
