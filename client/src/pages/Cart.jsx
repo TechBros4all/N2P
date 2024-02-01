@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
+import { useCart } from "../context/CartContext";
 
 const Cart = () => {
+  const { cart } = useCart();
+  console.log(cart.cartItems);
   const [products, setProducts] = useState([]);
 
   const user = {

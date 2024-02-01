@@ -5,11 +5,16 @@ import Main from "../layout/Main";
 import Cart from "../pages/Cart";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
+import { CartProvider } from "../context/CartContext";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main />,
+    element: (
+      <CartProvider>
+        <Main />
+      </CartProvider>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {

@@ -1,10 +1,13 @@
+import { enqueueSnackbar } from "notistack";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 
 const FeaturedProducts = () => {
   const [products, setProducts] = useState([]);
   const [selectedSizes, setSelectedSizes] = useState({});
   const navigate = useNavigate();
+  const { addToCart } = useCart();
 
   useEffect(() => {
     fetch("/products.json")
@@ -24,12 +27,14 @@ const FeaturedProducts = () => {
   const handleAddToCart = (item) => {
     const selectedSize = selectedSizes[item._id];
     if (!selectedSize) {
-      alert("Please select a size before adding to cart.");
+      enqueueSnackbar("Please select a size before adding to cart.", {
+        variant: "error",
+      });
       return;
     }
 
     const itemToAdd = { ...item, selectedSize };
-    console.log(itemToAdd);
+    addToCart(itemToAdd);
     navigate("/cart");
   };
 
