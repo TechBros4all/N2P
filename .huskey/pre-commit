@@ -1,0 +1,4 @@
+echo "pnpx prettier --write . "
+pnpm run build
+git add .
+git push
