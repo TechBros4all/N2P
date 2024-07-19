@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Header } from "./_components/common/header";
+import { Footer } from "./_components/common/footer";
 
 export const metadata: Metadata = {
   title: "N2P | Nothing 2 Prove",
@@ -34,7 +36,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning className="antialiased">
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
