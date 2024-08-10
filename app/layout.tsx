@@ -4,9 +4,9 @@ import { Header } from "./_components/common/header";
 import { Footer } from "./_components/common/footer";
 
 export const metadata: Metadata = {
-  title: "N2P | Nothing 2 Prove",
+  title: "N2P | Nothing To Prove",
   description:
-    'The official website of the "Nothing 2 Prove" streetwear brand.',
+    'The official website of the "Nothing To Prove" streetwear brand.',
   openGraph: {
     title: " N2P (Nothing2prove) ",
     description:

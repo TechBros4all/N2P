@@ -11,13 +11,13 @@ const leftSection = [
 
 // Array for the right section
 const rightSection = [
-  { label: "Profile", href: "/profile", icon: "/images/icons/user.svg" },
+  { label: "Profile", href: "/profile", icon: "/icons/user.svg" },
   {
     label: "All Categories",
     href: "all_categories",
-    icon: "/images/icons/heart.svg",
+    icon: "/icons/heart.svg",
   },
-  { label: "Cart", href: "/cart", icon: "/images/icons/cart.svg" },
+  { label: "Cart", href: "/cart", icon: "/icons/cart.svg" },
 ];
 export const PcNav = () => {
   return (
@@ -59,7 +59,7 @@ export const PcNav = () => {
           />
           <div className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4">
             <Image
-              src="/images/icons/search-icon.svg"
+              src="/icons/search-icon.svg"
               alt="search-icon"
               fill
               className="o"

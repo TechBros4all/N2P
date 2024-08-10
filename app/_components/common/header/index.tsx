@@ -26,10 +26,14 @@ export const Header = () => {
             <p>EN</p>
             <div className="flex items-center align-middle gap-2">
               <Image
-                src="/images/icons/Nigeria-01-1.svg"
+                src="/icons/Nigeria-01-1.svg"
                 width={20}
                 height={20}
                 alt="Nigeria"
+                style={{
+                  width: "20px",
+                  height: "20px",
+                }}
               />
               Nigeria
             </div>
