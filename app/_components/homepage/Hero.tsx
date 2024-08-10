@@ -24,7 +24,7 @@ export const Hero = () => {
           Up to <span className="font-bold">60% off</span> on all items till{" "}
           <span className="font-bold">September 11</span>
         </h1>
-        <button className="bg-red-700 text-white px-6 py-4 rounded-lg font-medium hover:bg-red-600 flex items-center transition duration-500 group">
+        <button className="bg-red-600 text-white px-6 py-4 rounded-lg font-medium flex items-center transition duration-500 group">
           Shop now
           <ChevronRight className="transform group-hover:translate-x-2 transition-transform duration-700" />
         </button>
