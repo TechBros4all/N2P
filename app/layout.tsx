@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "N2P | Nothing 2 Prove",
+  title: "N2P | Nothing To Prove",
   description:
-    'The official website of the "Nothing 2 Prove" streetwear brand.',
+    'The official website of the "Nothing To Prove" streetwear brand.',
   openGraph: {
     title: " N2P (Nothing2prove) ",
     description:
@@ -34,7 +34,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning className="antialiased">
+        {children}
+      </body>
     </html>
   );
 }
