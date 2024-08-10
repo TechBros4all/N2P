@@ -51,11 +51,21 @@ export const PcNav = () => {
 
       {/* Right Section */}
       <div className="flex items-center space-x-8">
-        <input
-          type="text"
-          placeholder="Search here..."
-          className="p-2 border rounded-md min-w-[200px] xl:w-[400px]"
-        />
+        <div className="relative min-w-[200px] xl:w-[420px] mx-auto">
+          <input
+            type="text"
+            placeholder="Search here..."
+            className="p-2 border rounded-md w-full pl-8"
+          />
+          <div className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4">
+            <Image
+              src="/images/icons/search-icon.svg"
+              alt="search-icon"
+              fill
+              className="o"
+            />
+          </div>
+        </div>
         {rightSection.map((item, index) => (
           <Link
             key={index}
@@ -74,7 +84,7 @@ export const PcNav = () => {
                 }}
               />
             </div>
-            <p className="font-semibold ">{item.label}</p>
+            <p className="font-semibold">{item.label}</p>
           </Link>
         ))}
       </div>
