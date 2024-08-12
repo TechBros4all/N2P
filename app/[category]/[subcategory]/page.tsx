@@ -6,6 +6,15 @@ import Link from "next/link";
 import { Header } from "@/app/_components/common/header";
 import { Footer } from "@/app/_components/common/footer";
 import Image from "next/image";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { ShoppingCart } from "lucide-react";
 
 const ITEMS_PER_PAGE = 15;
 
@@ -82,13 +91,24 @@ export default function CategoryPage({
     <main>
       <Header />
       <section className="container xl:px-28 py-4 min-h-screen">
-        <div className="text-red-600 font-normal mb-4 flex items-center space-x-3">
-          <Link href={`/`}>Home</Link>
-          <span>/</span>
-          <Link className="capitalize" href={`/category/${subcategory}`}>
-            {subcategory}
-          </Link>
-        </div>
+        <Breadcrumb className="py-4">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href={`/${category}/${subcategory}`}>
+                {subcategory}
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Clothing</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product: any) => (
             <div key={product.id} className="group">
@@ -104,8 +124,12 @@ export default function CategoryPage({
                 />
               </div>
               <h2>{product.name}</h2>
-              <p>{product.price}</p>
               <p>{product.subcategory}</p>
+              <p>{product.price}</p>
+              <button className="py-2 px-4 flex gap-2 outline-none border border-gray-200 rounded-full text-sm">
+                <ShoppingCart size={20} />
+                buy now
+              </button>
             </div>
           ))}
         </div>

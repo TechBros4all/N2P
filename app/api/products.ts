@@ -6,8 +6,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   // Fetch data from your database or API based on category and subcategory
   const products = getProductsFromDatabase({
-    category,
-    subcategory,
+    category: category as string,
+    subcategory: subcategory as string,
     page: Number(page),
     limit: Number(limit),
   });
