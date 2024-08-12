@@ -1,5 +1,3 @@
-// prisma/schema.prisma
-
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -18,12 +16,17 @@ model User {
 }
 
 model Product {
-  id          Int     @id @default(autoincrement())
-  name        String
-  description String
-  price       Float
-  stock       Int
-  orders      Order[]
+  id            Int          @id @default(autoincrement())
+  name          String
+  description   String
+  price         Float
+  stock         Int
+  imageUrl      String // Add this line to store the image URL
+  orders        Order[]
+  categoryId    Int
+  category      Category     @relation(fields: [categoryId], references: [id])
+  subcategoryId Int?
+  subcategory   Subcategory? @relation(fields: [subcategoryId], references: [id])
 }
 
 model Order {
@@ -35,4 +38,20 @@ model Order {
   quantity  Int
   total     Float
   status    String  @default("pending")
+}
+
+model Category {
+  id            Int           @id @default(autoincrement())
+  name          String        @unique
+  description   String?
+  subcategories Subcategory[]
+  Product       Product[]
+}
+
+model Subcategory {
+  id         Int       @id @default(autoincrement())
+  name       String    @unique
+  categoryId Int
+  category   Category  @relation(fields: [categoryId], references: [id])
+  products   Product[]
 }
