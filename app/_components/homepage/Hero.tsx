@@ -16,7 +16,7 @@ export const Hero = () => {
         />
       </div>
       <div className="w-full h-full absolute top-0 bottom-0 left-0 right-0 bg-black opacity-50"></div>
-      <div className="absolute inset-0 flex flex-col items-start justify-center pl-4 sm:pl-6 md:pl-10 lg:pl-20 space-y-5 text-white max-w-[450px]">
+      <div className="absolute inset-0 flex flex-col items-start justify-center pl-4 sm:pl-6 md:pl-10 lg:pl-20 space-y-5 text-white max-w-[500px]">
         <span className="bg-blue-500 text-white px-3 py-1 sm:px-4 sm:py-2 rounded-full text-xs md:text-sm font-medium">
           ENDLESS SUMMER SALE
         </span>

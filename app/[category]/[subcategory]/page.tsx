@@ -42,6 +42,8 @@ async function fetchProducts(
     throw new Error("Failed to fetch products");
   }
 
+  console.log(res)
+
   const data = await res.json();
 
   // Filter products based on category and subcategory
@@ -146,9 +148,8 @@ export default function CategoryPage({
                   passHref
                 >
                   <p
-                    className={`p-2 ${
-                      page === i + 1 ? "bg-gray-800 text-white" : ""
-                    }`}
+                    className={`p-2 ${page === i + 1 ? "bg-gray-800 text-white" : "bg-gray-200"
+                      } rounded`}
                   >
                     {i + 1}
                   </p>

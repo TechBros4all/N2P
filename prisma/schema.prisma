@@ -1,10 +1,10 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-}
-
-generator client {
-  provider = "prisma-client-js"
 }
 
 model User {
@@ -21,37 +21,37 @@ model Product {
   description   String
   price         Float
   stock         Int
-  imageUrl      String // Add this line to store the image URL
-  orders        Order[]
   categoryId    Int
-  category      Category     @relation(fields: [categoryId], references: [id])
+  imageUrl      String
   subcategoryId Int?
+  orders        Order[]
+  category      Category     @relation(fields: [categoryId], references: [id])
   subcategory   Subcategory? @relation(fields: [subcategoryId], references: [id])
 }
 
 model Order {
   id        Int     @id @default(autoincrement())
   userId    Int
-  user      User    @relation(fields: [userId], references: [id])
   productId Int
-  product   Product @relation(fields: [productId], references: [id])
   quantity  Int
   total     Float
   status    String  @default("pending")
+  product   Product @relation(fields: [productId], references: [id])
+  user      User    @relation(fields: [userId], references: [id])
 }
 
 model Category {
   id            Int           @id @default(autoincrement())
   name          String        @unique
   description   String?
-  subcategories Subcategory[]
   Product       Product[]
+  subcategories Subcategory[]
 }
 
 model Subcategory {
   id         Int       @id @default(autoincrement())
   name       String    @unique
   categoryId Int
-  category   Category  @relation(fields: [categoryId], references: [id])
   products   Product[]
+  category   Category  @relation(fields: [categoryId], references: [id])
 }
