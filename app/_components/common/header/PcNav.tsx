@@ -3,10 +3,10 @@ import Link from "next/link";
 
 // Array for the left section
 const leftSection = [
-  { label: "Men", href: "" },
-  { label: "Women", href: "" },
-  { label: "Kids", href: "" },
-  { label: "On Sale", href: "" },
+  { label: "Men", href: "/clothing/men" },
+  { label: "Women", href: "/category/women" },
+  { label: "Kids", href: "/category/kids" },
+  { label: "On Sale", href: "/category/on-sale" },
 ];
 
 // Array for the right section
@@ -14,7 +14,7 @@ const rightSection = [
   { label: "Profile", href: "/profile", icon: "/icons/user.svg" },
   {
     label: "All Categories",
-    href: "all_categories",
+    href: "/category/all",
     icon: "/icons/heart.svg",
   },
   { label: "Cart", href: "/cart", icon: "/icons/cart.svg" },
@@ -30,6 +30,7 @@ export const PcNav = () => {
             alt="Logo"
             width={80}
             height={50}
+            priority
             style={{
               width: "80px",
               height: "50px",

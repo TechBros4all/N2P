@@ -5,10 +5,10 @@ import { Heart, Menu, ShoppingCart, UserRound } from "lucide-react";
 
 // Array for the left section
 const leftSection = [
-  { label: "Men", href: "" },
-  { label: "Women", href: "" },
-  { label: "Kids", href: "" },
-  { label: "On Sale", href: "" },
+  { label: "Men", href: "/clothing/men" },
+  { label: "Women", href: "/category/women" },
+  { label: "Kids", href: "/category/kids" },
+  { label: "On Sale", href: "/category/on-sale" },
 ];
 
 // Array for the right section
@@ -16,7 +16,7 @@ const rightSection = [
   { label: "Profile", href: "/profile", icon: <UserRound size={24} /> },
   {
     label: "All Categories",
-    href: "all_categories",
+    href: "/category/all",
     icon: <Heart size={24} />,
   },
   { label: "Cart", href: "/cart", icon: <ShoppingCart size={24} /> },
@@ -69,7 +69,7 @@ export const MobileNav = () => {
       >
         <div className="flex justify-end p-4">
           <button
-            className="text-white text-2xl focus:outline-none"
+            className="text-white text-4xl focus:outline-none"
             onClick={() => setIsMenuOpen(false)}
           >
             &times;

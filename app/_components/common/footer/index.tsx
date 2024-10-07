@@ -11,6 +11,7 @@ export const Footer = () => {
               alt="Logo"
               width={80}
               height={50}
+              priority
               style={{
                 width: "80px",
                 height: "50px",
