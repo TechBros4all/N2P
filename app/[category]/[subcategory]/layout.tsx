@@ -15,19 +15,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const categoryDetails = await getCategoryByName(category);
 
   return {
-    title: `${
-      categoryDetails?.name || category
-    } - ${subcategory} | Nothing To Prove`,
-    description: `Explore the latest ${subcategory} in the ${
-      categoryDetails?.name || category
-    } category. Find the best deals and latest trends at Nothing To Prove.`,
-    openGraph: {
-      title: `${
-        categoryDetails?.name || category
+    title: `${categoryDetails?.name || category
       } - ${subcategory} | Nothing To Prove`,
-      description: `Explore the latest ${subcategory} in the ${
-        categoryDetails?.name || category
+    description: `Explore the latest ${subcategory} in the ${categoryDetails?.name || category
       } category. Find the best deals and latest trends at Nothing To Prove.`,
+    openGraph: {
+      title: `${categoryDetails?.name || category
+        } - ${subcategory} | Nothing To Prove`,
+      description: `Explore the latest ${subcategory} in the ${categoryDetails?.name || category
+        } category. Find the best deals and latest trends at Nothing To Prove.`,
 
       type: "website",
     },

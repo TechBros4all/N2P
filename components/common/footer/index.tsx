@@ -5,7 +5,7 @@ export const Footer = () => {
     <footer className="bg-zinc-200">
       <section className="container xl:px-28 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col text-left items-start">
             <Image
               src="/images/logo.png"
               alt="Logo"
@@ -16,7 +16,6 @@ export const Footer = () => {
                 width: "80px",
                 height: "50px",
               }}
-              className="mx-auto"
             />
             <p className="text-gray-700 mt-4">
               Be the first to receive recent updates, promotions, and more.

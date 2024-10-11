@@ -2,8 +2,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Header } from "@/app/_components/common/header";
-import { Footer } from "@/app/_components/common/footer";
+import { Header } from "@/components/common/header";
+import { Footer } from "@/components/common/footer";
 import Image from "next/image";
 import {
   Breadcrumb,
@@ -17,6 +17,7 @@ import { ShoppingCart } from "lucide-react";
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import { Separator } from "@/components/ui/separator";
 import AutoResizingGrid from "@/components/AutoResizingGrid/AutoResizingGrid";
+import Link from "next/link";
 
 const ITEMS_PER_PAGE = 9;
 
@@ -135,10 +136,10 @@ export default function CategoryPage({
                 </div>
                 <p>{product.subcategory}</p>
               </div>
-              <button className="py-2 px-4 flex gap-2 outline-none border border-gray-200 rounded-full text-sm">
+              <Link href={`/${category}/${subcategory}/${product.id}`} className="py-2 px-4 flex gap-2 w-fit outline-none border border-gray-200 rounded-full text-sm">
                 <ShoppingCart size={20} />
                 Add to Cart
-              </button>
+              </Link>
             </div>
           ))}
         </AutoResizingGrid>

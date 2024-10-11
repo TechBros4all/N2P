@@ -6,6 +6,7 @@ import { PcNav } from "./PcNav";
 import { MdPhone } from "react-icons/md";
 import { PiLineVertical } from "react-icons/pi";
 import Image from "next/image";
+import { Separator } from "@/components/ui/separator";
 
 export const Header = () => {
   const isMobile = useIsMobile();
@@ -41,10 +42,10 @@ export const Header = () => {
           </div>
         </div>
       </section>
-
       <header className="container">
         {isMobile ? <MobileNav /> : <PcNav />}
       </header>
+      <Separator />
     </section>
   );
 };
