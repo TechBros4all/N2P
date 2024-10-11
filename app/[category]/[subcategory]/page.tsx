@@ -2,7 +2,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { Header } from "@/app/_components/common/header";
 import { Footer } from "@/app/_components/common/footer";
 import Image from "next/image";
@@ -15,8 +14,11 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { ShoppingCart } from "lucide-react";
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
+import { Separator } from "@/components/ui/separator";
+import AutoResizingGrid from "@/components/AutoResizingGrid/AutoResizingGrid";
 
-const ITEMS_PER_PAGE = 15;
+const ITEMS_PER_PAGE = 9;
 
 // async function fetchProducts(
 //   category: string,
@@ -74,6 +76,7 @@ export default function CategoryPage({
   params: { category: string; subcategory: string };
   searchParams: { page?: string };
 }) {
+  const pathname = `/${params.category}/${params.subcategory}`;
   const { category, subcategory } = params;
   const page = searchParams.page ? parseInt(searchParams.page) : 1;
   const [products, setProducts] = useState([]);
@@ -111,7 +114,7 @@ export default function CategoryPage({
           </BreadcrumbList>
         </Breadcrumb>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <AutoResizingGrid gap={24} minWidth={300}>
           {products.map((product: any) => (
             <div key={product.id} className="group">
               <div className="relative h-[300px]">
@@ -125,38 +128,44 @@ export default function CategoryPage({
                   className="object-cover"
                 />
               </div>
-              <h2>{product.name}</h2>
-              <p>{product.subcategory}</p>
-              <p>{product.price}</p>
+              <div className="my-4">
+                <div className="flex items-center justify-between">
+                  <h2>{product.name}</h2>
+                  <p className="flex items-center gap-0.5"><span className="text-xs">&#8358;</span>{product.price}</p>
+                </div>
+                <p>{product.subcategory}</p>
+              </div>
               <button className="py-2 px-4 flex gap-2 outline-none border border-gray-200 rounded-full text-sm">
                 <ShoppingCart size={20} />
-                buy now
+                Add to Cart
               </button>
             </div>
           ))}
-        </div>
-
+        </AutoResizingGrid>
         {/* Pagination */}
-        <div className="pagination my-8">
-          <ul className="flex gap-2">
-            {Array.from({
-              length: Math.ceil(totalResults / ITEMS_PER_PAGE),
-            }).map((_, i) => (
-              <li key={i}>
-                <Link
-                  href={`/${category}/${subcategory}?page=${i + 1}`}
-                  passHref
-                >
-                  <p
-                    className={`p-2 ${page === i + 1 ? "bg-gray-800 text-white" : "bg-gray-200"
-                      } rounded`}
-                  >
-                    {i + 1}
-                  </p>
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <div className="pagination my-8 space-y-4">
+          <Separator />
+          <Pagination>
+            <PaginationContent className="w-full flex items-center justify-between">
+              <PaginationItem>
+                <PaginationPrevious href={`/${category}/${subcategory}?page=${page > 1 ? page - 1 : 1}`} />
+              </PaginationItem>
+              <div className="flex items-center gap-2">
+                {Array.from({
+                  length: Math.ceil(totalResults / ITEMS_PER_PAGE),
+                }).map((_, i) => (
+                  <PaginationItem key={i}>
+                    <PaginationLink href={`/${category}/${subcategory}?page=${i + 1}`} isActive={page === i + 1}>
+                      {i + 1}
+                    </PaginationLink>
+                  </PaginationItem>
+                ))}
+              </div>
+              <PaginationItem>
+                <PaginationNext href={`/${category}/${subcategory}?page=${page < Math.ceil(totalResults / ITEMS_PER_PAGE) ? page + 1 : page}`} />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
         </div>
       </section>
       <Footer />
