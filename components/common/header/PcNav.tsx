@@ -84,7 +84,8 @@ export const PcNav = () => {
                 }}
               />
             </div>
-            <p className="font-semibold">{item.label}</p>
+            <p className={`text-lg font-semibold ${pathname === item.href ? "text-red-600" : ""}`}
+            >{item.label}</p>
           </Link>
         ))}
       </div>

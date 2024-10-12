@@ -87,7 +87,7 @@ export const MobileNav = () => {
               <Link
                 key={index}
                 href={item.href}
-                className={`text-lg font-semibol`}
+                className={`text-lg font-semibold ${pathname === item.href ? "text-red-600" : ""}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 <div className="flex flex-col items-center">

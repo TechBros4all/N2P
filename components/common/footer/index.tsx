@@ -35,7 +35,7 @@ export const Footer = () => {
               </button>
             </form>
           </div>
-          <div className="flex items-center justify-start md:justify-center">
+          <div className="flex items-center justify-start md:justify-end text-[16px]">
             <div>
               <h4 className="text-gray-800 font-semibold mb-4">Our Links</h4>
               <ul className="space-y-2">

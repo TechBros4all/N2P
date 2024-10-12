@@ -14,7 +14,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { ShoppingCart } from "lucide-react";
-import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import { Separator } from "@/components/ui/separator";
 import AutoResizingGrid from "@/components/AutoResizingGrid/AutoResizingGrid";
 import Link from "next/link";
@@ -111,6 +111,95 @@ export default function CategoryPage({
       });
   };
 
+  const totalPages = Math.ceil(1000 / ITEMS_PER_PAGE);
+
+  const pageItems = () => {
+    const items = [];
+    const showEllipsisStart = page > 3;
+    const showEllipsisEnd = page < totalPages - 2;
+
+    if (totalPages <= 5) {
+      // If total pages are 5 or less, show all pages
+      for (let i = 1; i <= totalPages; i++) {
+        items.push(
+          <PaginationItem key={i}>
+            <PaginationLink
+              href={`/${category}/${subcategory}?page=${i}`}
+              isActive={page === i}
+              className="text-xs md:text-sm"
+            >
+              {i}
+            </PaginationLink>
+          </PaginationItem>
+        );
+      }
+    } else {
+      // Always show first page
+      items.push(
+        <PaginationItem key={1}>
+          <PaginationLink
+            href={`/${category}/${subcategory}?page=1`}
+            isActive={page === 1}
+            className="text-xs md:text-sm"
+          >
+            1
+          </PaginationLink>
+        </PaginationItem>
+      );
+
+      // Show ellipsis after first page if necessary
+      if (showEllipsisStart) {
+        items.push(<PaginationEllipsis key="ellipsis-start" className="text-xs md:text-sm" />);
+      }
+
+      // Determine the range of middle pages to show
+      let startPage = Math.max(1, page - 1);
+      let endPage = Math.min(page + 1, totalPages - 1);
+
+      // Adjust if we're near the start or end
+      if (page <= 3) {
+        endPage = 2;
+      } else if (page >= totalPages - 2) {
+        startPage = totalPages - 3;
+      }
+
+      // Add middle pages
+      for (let i = startPage; i <= endPage; i++) {
+        items.push(
+          <PaginationItem key={i}>
+            <PaginationLink
+              href={`/${category}/${subcategory}?page=${i}`}
+              isActive={page === i}
+              className="text-xs md:text-sm"
+            >
+              {i}
+            </PaginationLink>
+          </PaginationItem>
+        );
+      }
+
+      // Show ellipsis before last page if necessary
+      if (showEllipsisEnd) {
+        items.push(<PaginationEllipsis key="ellipsis-end" className="text-xs md:text-sm" />);
+      }
+
+      // Always show last page
+      items.push(
+        <PaginationItem key={totalPages}>
+          <PaginationLink
+            href={`/${category}/${subcategory}?page=${totalPages}`}
+            isActive={page === totalPages}
+            className="text-xs md:text-sm"
+          >
+            {totalPages}
+          </PaginationLink>
+        </PaginationItem>
+      );
+    }
+
+    return items;
+  };
+
   return (
     <main>
       <Header />
@@ -175,29 +264,16 @@ export default function CategoryPage({
                 />
               </PaginationItem>
               <div className="flex items-center gap-2 overflow-x-auto md:overflow-visible">
-                {Array.from({
-                  length: Math.ceil(totalResults / ITEMS_PER_PAGE),
-                }).map((_, i) => (
-                  <PaginationItem key={i}>
-                    <PaginationLink
-                      href={`/${category}/${subcategory}?page=${i + 1}`}
-                      isActive={page === i + 1}
-                      className="text-xs md:text-sm"
-                    >
-                      {i + 1}
-                    </PaginationLink>
-                  </PaginationItem>
-                ))}
+                {pageItems()}
               </div>
               <PaginationItem className="mt-2 md:mb-0">
                 <PaginationNext
-                  href={`/${category}/${subcategory}?page=${page < Math.ceil(totalResults / ITEMS_PER_PAGE) ? page + 1 : page}`}
+                  href={`/${category}/${subcategory}?page=${page < totalPages ? page + 1 : page}`}
                   className="text-sm md:text-base"
                 />
               </PaginationItem>
             </PaginationContent>
           </Pagination>
-
         </div>
       </section>
       <Footer />
