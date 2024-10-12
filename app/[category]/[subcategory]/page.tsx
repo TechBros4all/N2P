@@ -18,6 +18,7 @@ import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, Pagi
 import { Separator } from "@/components/ui/separator";
 import AutoResizingGrid from "@/components/AutoResizingGrid/AutoResizingGrid";
 import Link from "next/link";
+import { useToast } from "@/hooks/use-toast";
 
 const ITEMS_PER_PAGE = 9;
 
@@ -77,6 +78,7 @@ export default function CategoryPage({
   params: { category: string; subcategory: string };
   searchParams: { page?: string };
 }) {
+  const toast = useToast();
   const pathname = `/${params.category}/${params.subcategory}`;
   const { category, subcategory } = params;
   const page = searchParams.page ? parseInt(searchParams.page) : 1;
@@ -92,6 +94,15 @@ export default function CategoryPage({
 
     loadProducts();
   }, [category, subcategory, page]);
+
+  const handleAddToCart = () => {
+    // action to add product to cart
+    toast.toast({
+      variant: "success",
+      title: "Success",
+      description: "Your message has been sent.",
+    })
+  };
 
   return (
     <main>
@@ -118,28 +129,30 @@ export default function CategoryPage({
         <AutoResizingGrid gap={24} minWidth={300}>
           {products.map((product: any) => (
             <div key={product.id} className="group">
-              <div className="relative h-[300px]">
-                <Image
-                  src={product.imageUrl}
-                  alt={product.name}
-                  fill
-                  sizes="auto"
-                  priority
-                  quality={80}
-                  className="object-cover"
-                />
-              </div>
-              <div className="my-4">
-                <div className="flex items-center justify-between">
-                  <h2>{product.name}</h2>
-                  <p className="flex items-center gap-0.5"><span className="text-xs">&#8358;</span>{product.price}</p>
+              <Link href={`/${category}/${subcategory}/${product.id}`}>
+                <div className="relative h-[300px]">
+                  <Image
+                    src={product.imageUrl}
+                    alt={product.name}
+                    fill
+                    sizes="auto"
+                    priority
+                    quality={80}
+                    className="object-cover"
+                  />
                 </div>
-                <p>{product.subcategory}</p>
-              </div>
-              <Link href={`/${category}/${subcategory}/${product.id}`} className="py-2 px-4 flex gap-2 w-fit outline-none border border-gray-200 rounded-full text-sm">
+                <div className="my-4">
+                  <div className="flex items-center justify-between">
+                    <h2>{product.name}</h2>
+                    <p className="flex items-center gap-0.5"><span className="text-xs">&#8358;</span>{product.price}</p>
+                  </div>
+                  <p>{product.subcategory}</p>
+                </div>
+              </Link>
+              <button className="py-2 px-4 flex gap-2 w-fit outline-none border border-gray-200 rounded-full text-sm" onClick={handleAddToCart}>
                 <ShoppingCart size={20} />
                 Add to Cart
-              </Link>
+              </button>
             </div>
           ))}
         </AutoResizingGrid>

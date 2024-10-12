@@ -35,7 +35,8 @@ const ProductPage = ({ params }
                         </BreadcrumbItem>
                     </BreadcrumbList>
                 </Breadcrumb>
-                ProductPage</section>
+                ProductPage
+            </section>
         </main>
     )
 }
