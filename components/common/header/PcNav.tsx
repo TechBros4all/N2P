@@ -1,25 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 // Array for the left section
 const leftSection = [
   { label: "Men", href: "/clothing/men" },
-  { label: "Women", href: "/category/women" },
-  { label: "Kids", href: "/category/kids" },
-  { label: "On Sale", href: "/category/on-sale" },
+  { label: "Women", href: "/clothing/women" },
+  { label: "Kids", href: "/clothing/kids" },
+  { label: "On Sale", href: "/clothing/on-sale" },
 ];
 
 // Array for the right section
 const rightSection = [
   { label: "Profile", href: "/profile", icon: "/icons/user.svg" },
-  {
-    label: "All Categories",
-    href: "/category/all",
-    icon: "/icons/heart.svg",
-  },
   { label: "Cart", href: "/cart", icon: "/icons/cart.svg" },
 ];
 export const PcNav = () => {
+  const pathname = usePathname();
   return (
     <nav className="w-full flex items-center justify-between py-6 xl:px-20">
       {/* Left Section */}
@@ -42,22 +39,24 @@ export const PcNav = () => {
             <Link
               key={index}
               href={item.href}
-              className="text-gray-900 font-semibold text-[16px]"
+              className={`text-gray-900 font-semibold text-[16px] ${pathname === item.href ? "text-red-600" : ""}`}
             >
               {item.label}
             </Link>
           ))}
         </div>
       </div>
-
       {/* Right Section */}
       <div className="flex items-center space-x-8">
         <div className="relative min-w-[200px] xl:w-[420px] mx-auto">
-          <input
-            type="text"
-            placeholder="Search here..."
-            className="p-2 border rounded-md w-full pl-8"
-          />
+          <form>
+            <input
+              type="text"
+              placeholder="Search here..."
+              className="p-2 border rounded-md w-full pl-8"
+              id="search"
+            />
+          </form>
           <div className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4">
             <Image
               src="/icons/search-icon.svg"

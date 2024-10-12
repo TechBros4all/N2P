@@ -14,11 +14,12 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { ShoppingCart } from "lucide-react";
-import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import { Separator } from "@/components/ui/separator";
 import AutoResizingGrid from "@/components/AutoResizingGrid/AutoResizingGrid";
 import Link from "next/link";
-import { useToast } from "@/hooks/use-toast";
+import { Slide, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ITEMS_PER_PAGE = 9;
 
@@ -78,7 +79,6 @@ export default function CategoryPage({
   params: { category: string; subcategory: string };
   searchParams: { page?: string };
 }) {
-  const toast = useToast();
   const pathname = `/${params.category}/${params.subcategory}`;
   const { category, subcategory } = params;
   const page = searchParams.page ? parseInt(searchParams.page) : 1;
@@ -97,11 +97,18 @@ export default function CategoryPage({
 
   const handleAddToCart = () => {
     // action to add product to cart
-    toast.toast({
-      variant: "success",
-      title: "Success",
-      description: "Your message has been sent.",
-    })
+    toast.success("Wow so easy !",
+      {
+        position: "top-right",
+        autoClose: 3500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Slide
+      });
   };
 
   return (
@@ -111,17 +118,17 @@ export default function CategoryPage({
         <Breadcrumb className="py-4">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink href={`/${category}/${subcategory}`}>
-                {subcategory}
-              </BreadcrumbLink>
+              <BreadcrumbLink href="/" className="hover:text-red-600">Home</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbPage>Clothing</BreadcrumbPage>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href={`/${category}/${subcategory}`} className="hover:text-red-600">
+                {subcategory}
+              </BreadcrumbLink>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
@@ -160,26 +167,37 @@ export default function CategoryPage({
         <div className="pagination my-8 space-y-4">
           <Separator />
           <Pagination>
-            <PaginationContent className="w-full flex items-center justify-between">
-              <PaginationItem>
-                <PaginationPrevious href={`/${category}/${subcategory}?page=${page > 1 ? page - 1 : 1}`} />
+            <PaginationContent className="w-full flex flex-col md:flex-row items-center justify-between p-2 md:p-4">
+              <PaginationItem className="mb-2 md:mb-0">
+                <PaginationPrevious
+                  href={`/${category}/${subcategory}?page=${page > 1 ? page - 1 : 1}`}
+                  className="text-sm md:text-base"
+                />
               </PaginationItem>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 overflow-x-auto md:overflow-visible">
                 {Array.from({
                   length: Math.ceil(totalResults / ITEMS_PER_PAGE),
                 }).map((_, i) => (
                   <PaginationItem key={i}>
-                    <PaginationLink href={`/${category}/${subcategory}?page=${i + 1}`} isActive={page === i + 1}>
+                    <PaginationLink
+                      href={`/${category}/${subcategory}?page=${i + 1}`}
+                      isActive={page === i + 1}
+                      className="text-xs md:text-sm"
+                    >
                       {i + 1}
                     </PaginationLink>
                   </PaginationItem>
                 ))}
               </div>
-              <PaginationItem>
-                <PaginationNext href={`/${category}/${subcategory}?page=${page < Math.ceil(totalResults / ITEMS_PER_PAGE) ? page + 1 : page}`} />
+              <PaginationItem className="mt-2 md:mb-0">
+                <PaginationNext
+                  href={`/${category}/${subcategory}?page=${page < Math.ceil(totalResults / ITEMS_PER_PAGE) ? page + 1 : page}`}
+                  className="text-sm md:text-base"
+                />
               </PaginationItem>
             </PaginationContent>
           </Pagination>
+
         </div>
       </section>
       <Footer />

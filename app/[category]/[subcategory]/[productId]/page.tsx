@@ -1,5 +1,6 @@
 "use client";
 
+import { Footer } from "@/components/common/footer";
 import { Header } from "@/components/common/header";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { usePathname } from "next/navigation"
@@ -17,17 +18,17 @@ const ProductPage = ({ params }
                 <Breadcrumb className="py-4">
                     <BreadcrumbList>
                         <BreadcrumbItem>
-                            <BreadcrumbLink href="/">Home</BreadcrumbLink>
-                        </BreadcrumbItem>
-                        <BreadcrumbSeparator />
-                        <BreadcrumbItem>
-                            <BreadcrumbLink href={`/${category}/${subcategory}`}>
-                                {subcategory}
-                            </BreadcrumbLink>
+                            <BreadcrumbLink href="/" className="hover:text-red-600">Home</BreadcrumbLink>
                         </BreadcrumbItem>
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
                             <BreadcrumbPage>Clothing</BreadcrumbPage>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                            <BreadcrumbLink href={`/${subcategory}/${category}`} className="hover:text-red-600">
+                                {subcategory}
+                            </BreadcrumbLink>
                         </BreadcrumbItem>
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
@@ -37,6 +38,7 @@ const ProductPage = ({ params }
                 </Breadcrumb>
                 ProductPage
             </section>
+            <Footer />
         </main>
     )
 }
