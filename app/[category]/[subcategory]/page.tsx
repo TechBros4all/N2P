@@ -20,57 +20,9 @@ import AutoResizingGrid from "@/components/AutoResizingGrid/AutoResizingGrid";
 import Link from "next/link";
 import { Slide, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { fetchProductsByCategory } from "./data";
 
 const ITEMS_PER_PAGE = 9;
-
-// async function fetchProducts(
-//   category: string,
-//   subcategory: string,
-//   page: number = 1
-// ) {
-//   const res = await fetch(
-//     `/api/products?category=${category}&subcategory=${subcategory}&page=${page}&limit=${ITEMS_PER_PAGE}`
-//   );
-//   if (!res.ok) {
-//     throw new Error("Failed to fetch products");
-//   }
-//   return res.json();
-// }
-
-async function fetchProducts(
-  category: string,
-  subcategory: string,
-  page: number = 1
-) {
-  const res = await fetch(`/products.json`);
-  if (!res.ok) {
-    throw new Error("Failed to fetch products");
-  }
-
-  console.log(res)
-
-  const data = await res.json();
-
-  // Filter products based on category and subcategory
-  //   const filteredProducts = data.products.filter(
-  //     (product: any) =>
-  //       product.category === category && product.subcategory === subcategory
-  //   );
-
-  const filteredProducts = data.products;
-
-  // Paginate the results
-  const startIndex = (page - 1) * ITEMS_PER_PAGE;
-  const paginatedProducts = filteredProducts.slice(
-    startIndex,
-    startIndex + ITEMS_PER_PAGE
-  );
-
-  return {
-    products: paginatedProducts,
-    total: filteredProducts.length,
-  };
-}
 
 export default function CategoryPage({
   params,
@@ -87,17 +39,16 @@ export default function CategoryPage({
 
   useEffect(() => {
     async function loadProducts() {
-      const data = await fetchProducts(category, subcategory, page);
+      const data = await fetchProductsByCategory(category, subcategory, page);
       setProducts(data.products);
       setTotalResults(data.total);
     }
-
     loadProducts();
   }, [category, subcategory, page]);
 
   const handleAddToCart = () => {
     // action to add product to cart
-    toast.success("Wow so easy !",
+    toast.success("Added to cart Succeefully !",
       {
         position: "top-right",
         autoClose: 3500,
@@ -111,7 +62,7 @@ export default function CategoryPage({
       });
   };
 
-  const totalPages = Math.ceil(1000 / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(totalResults / ITEMS_PER_PAGE);
 
   const pageItems = () => {
     const items = [];
@@ -215,28 +166,35 @@ export default function CategoryPage({
     <main>
       <Header />
       <section className="container xl:px-28 py-4 min-h-screen">
-        <Breadcrumb className="py-4">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/" className="hover:text-red-600">Home</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Clothing</BreadcrumbPage>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink href={`/${category}/${subcategory}`} className="hover:text-red-600">
-                {subcategory}
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+        <div className="py-4 flex items-center justify-between flex-wrap">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbPage>Home</BreadcrumbPage>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Clothing</BreadcrumbPage>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>
+                  {subcategory}
+                </BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
 
+          <p className="text-xs md:text-[16px] font-normal text-[#101928]">
+            {totalResults > 0
+              ? `Showing ${(page - 1) * ITEMS_PER_PAGE + 1} - ${Math.min(page * ITEMS_PER_PAGE, totalResults)} of ${totalResults} results`
+              : "No results found"}
+          </p>
+        </div>
         <AutoResizingGrid gap={24} minWidth={300}>
           {products.map((product: any) => (
             <div key={product.id} className="group">
-              <Link href={`/${category}/${subcategory}/${product.id}`}>
+              <Link href={`/${category}/${product.subcategory}/${product.id}`}>
                 <div className="relative h-[300px]">
                   <Image
                     src={product.imageUrl}

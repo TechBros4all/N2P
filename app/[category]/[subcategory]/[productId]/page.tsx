@@ -14,11 +14,11 @@ const ProductPage = ({ params }
     return (
         <main>
             <Header />
-            <section className="container xl:px-28 py-4 min-h-screen">
+            <section className="container xl:px-28 pt-4 pb-12 min-h-screen">
                 <Breadcrumb className="py-4">
                     <BreadcrumbList>
                         <BreadcrumbItem>
-                            <BreadcrumbLink href="/" className="hover:text-red-600">Home</BreadcrumbLink>
+                            <BreadcrumbPage>Home</BreadcrumbPage>
                         </BreadcrumbItem>
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
@@ -26,9 +26,9 @@ const ProductPage = ({ params }
                         </BreadcrumbItem>
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
-                            <BreadcrumbLink href={`/${subcategory}/${category}`} className="hover:text-red-600">
+                            <BreadcrumbPage>
                                 {subcategory}
-                            </BreadcrumbLink>
+                            </BreadcrumbPage>
                         </BreadcrumbItem>
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
@@ -36,7 +36,13 @@ const ProductPage = ({ params }
                         </BreadcrumbItem>
                     </BreadcrumbList>
                 </Breadcrumb>
-                ProductPage
+                <div className="w-full bg-black h-[845px] lg:flex gap-10">
+                    <div className="w-full h-full bg-slate-500 space-y-5">
+                        <div className="w-full h-5/6 bg-blue-500 relative overflow-hidden rounded-[10px]"></div>
+                        <div className="w-full h-1/6 bg-blue-500"></div>
+                    </div>
+                    <div className="w-full h-full bg-slate-500"></div>
+                </div>
             </section>
             <Footer />
         </main>

@@ -17,7 +17,7 @@ export default function LandingPage() {
   return (
     <>
       <Header />
-      <main className="container xl:px-28">
+      <main className="container xl:px-28 mt-8">
         <Hero />
         <section className="py-10">
           {isMobile ? <MobileHeroSlider /> : <HeroSlider />}
