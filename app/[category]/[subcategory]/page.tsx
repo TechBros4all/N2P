@@ -115,11 +115,9 @@ export default function CategoryPage({
 
   const pageItems = () => {
     const items = [];
-    const showEllipsisStart = page > 3;
-    const showEllipsisEnd = page < totalPages - 2;
 
-    if (totalPages <= 5) {
-      // If total pages are 5 or less, show all pages
+    if (totalPages <= 4) {
+      // If total pages are 4 or less, show all pages
       for (let i = 1; i <= totalPages; i++) {
         items.push(
           <PaginationItem key={i}>
@@ -147,40 +145,53 @@ export default function CategoryPage({
         </PaginationItem>
       );
 
-      // Show ellipsis after first page if necessary
-      if (showEllipsisStart) {
+      // Show ellipsis or second page
+      if (page > 3) {
         items.push(<PaginationEllipsis key="ellipsis-start" className="text-xs md:text-sm" />);
-      }
-
-      // Determine the range of middle pages to show
-      let startPage = Math.max(1, page - 1);
-      let endPage = Math.min(page + 1, totalPages - 1);
-
-      // Adjust if we're near the start or end
-      if (page <= 3) {
-        endPage = 2;
-      } else if (page >= totalPages - 2) {
-        startPage = totalPages - 3;
-      }
-
-      // Add middle pages
-      for (let i = startPage; i <= endPage; i++) {
+      } else {
         items.push(
-          <PaginationItem key={i}>
+          <PaginationItem key={2}>
             <PaginationLink
-              href={`/${category}/${subcategory}?page=${i}`}
-              isActive={page === i}
+              href={`/${category}/${subcategory}?page=2`}
+              isActive={page === 2}
               className="text-xs md:text-sm"
             >
-              {i}
+              2
             </PaginationLink>
           </PaginationItem>
         );
       }
 
-      // Show ellipsis before last page if necessary
-      if (showEllipsisEnd) {
+      // Show current page if it's not first, second, or last
+      if (page > 2 && page < totalPages - 1) {
+        items.push(
+          <PaginationItem key={page}>
+            <PaginationLink
+              href={`/${category}/${subcategory}?page=${page}`}
+              isActive={true}
+              className="text-xs md:text-sm"
+            >
+              {page}
+            </PaginationLink>
+          </PaginationItem>
+        );
+      }
+
+      // Show ellipsis or second-to-last page
+      if (page < totalPages - 2) {
         items.push(<PaginationEllipsis key="ellipsis-end" className="text-xs md:text-sm" />);
+      } else {
+        items.push(
+          <PaginationItem key={totalPages - 1}>
+            <PaginationLink
+              href={`/${category}/${subcategory}?page=${totalPages - 1}`}
+              isActive={page === totalPages - 1}
+              className="text-xs md:text-sm"
+            >
+              {totalPages - 1}
+            </PaginationLink>
+          </PaginationItem>
+        );
       }
 
       // Always show last page
