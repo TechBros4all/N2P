@@ -166,7 +166,7 @@ export default function CategoryPage({
     <main>
       <Header />
       <section className="container xl:px-28 py-4 min-h-screen">
-        <div className="py-4 flex items-center justify-between flex-wrap">
+        <div className="py-4 flex items-center justify-between flex-wrap space-y-4">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
@@ -208,13 +208,17 @@ export default function CategoryPage({
                 </div>
                 <div className="my-4">
                   <div className="flex items-center justify-between">
-                    <h2>{product.name}</h2>
+                    <h2 className="font-medium text-[16px]">{product.name}</h2>
                     <p className="flex items-center gap-0.5"><span className="text-xs">&#8358;</span>{product.price}</p>
                   </div>
-                  <p>{product.subcategory}</p>
+                  <p className="font-normal text-xs">
+                    {product.description.length > 55
+                      ? `${product.description.substring(0, 55)}...`
+                      : product.description}
+                  </p>
                 </div>
               </Link>
-              <button className="py-2 px-4 flex gap-2 w-fit outline-none border border-gray-200 rounded-full text-sm" onClick={handleAddToCart}>
+              <button className="py-2 px-4 flex gap-2 w-fit outline-none border border-gray-200 rounded-full text-sm font-semibold" onClick={handleAddToCart}>
                 <ShoppingCart size={20} />
                 Add to Cart
               </button>

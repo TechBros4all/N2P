@@ -1,124 +1,139 @@
 {
     "products": [
         {
-            "id": 1,
+            "id": "1",
             "name": "Product 1",
             "price": 29.99,
             "category": "clothing",
             "subcategory": "men",
-            "imageUrl": "/images/Marketing-image3.png"
+            "imageUrl": "/images/Marketing-image3.png",
+            "description": "A stylish men's clothing item."
         },
         {
-            "id": 2,
+            "id": "2",
             "name": "Product 2",
             "price": 49.99,
             "category": "clothing",
             "subcategory": "men",
-            "imageUrl": "/images/Marketing-image3.png"
+            "imageUrl": "/images/Marketing-image3.png",
+            "description": "A premium quality men's clothing item."
         },
         {
-            "id": 3,
+            "id": "3",
             "name": "Product 3",
             "price": 39.99,
             "category": "clothing",
             "subcategory": "women",
-            "imageUrl": "/images/Marketing-image3.png"
+            "imageUrl": "/images/Marketing-image3.png",
+            "description": "A fashionable women's clothing item."
         },
         {
-            "id": 4,
+            "id": "4",
             "name": "Product 4",
             "price": 19.99,
             "category": "clothing",
             "subcategory": "women",
-            "imageUrl": "/images/Marketing-image3.png"
+            "imageUrl": "/images/Marketing-image3.png",
+            "description": "An affordable women's clothing item."
         },
         {
-            "id": 5,
+            "id": "5",
             "name": "Product 5",
             "price": 59.99,
             "category": "clothing",
             "subcategory": "women",
-            "imageUrl": "/images/Marketing-image3.png"
+            "imageUrl": "/images/Marketing-image3.png",
+            "description": "A high-quality women's clothing item."
         },
         {
-            "id": 6,
+            "id": "6",
             "name": "Product 6",
             "price": 79.99,
             "category": "clothing",
             "subcategory": "men",
-            "imageUrl": "/images/Marketing-image3.png"
+            "imageUrl": "/images/Marketing-image3.png",
+            "description": "A luxury men's clothing item."
         },
         {
-            "id": 7,
+            "id": "7",
             "name": "Product 7",
             "price": 9.99,
             "category": "clothing",
             "subcategory": "kids",
-            "imageUrl": "/images/Marketing-image3.png"
+            "imageUrl": "/images/Marketing-image3.png",
+            "description": "A budget-friendly kids' clothing item."
         },
         {
-            "id": 8,
+            "id": "8",
             "name": "Product 8",
             "price": 69.99,
             "category": "clothing",
             "subcategory": "kids",
-            "imageUrl": "/images/Marketing-image3.png"
+            "imageUrl": "/images/Marketing-image3.png",
+            "description": "A premium kids' clothing item."
         },
         {
-            "id": 9,
+            "id": "9",
             "name": "Product 9",
             "price": 89.99,
             "category": "clothing",
             "subcategory": "kids",
-            "imageUrl": "/images/Marketing-image3.png"
+            "imageUrl": "/images/Marketing-image3.png",
+            "description": "A high-end kids' clothing item."
         },
         {
-            "id": 10,
+            "id": "10",
             "name": "Product 10",
             "price": 99.99,
             "category": "clothing",
             "subcategory": "kids",
-            "imageUrl": "/images/Marketing-image3.png"
+            "imageUrl": "/images/Marketing-image3.png",
+            "description": "A luxury kids' clothing item."
         },
         {
-            "id": 11,
+            "id": "11",
             "name": "Product 11",
             "price": 79.99,
             "category": "clothing",
             "subcategory": "men",
-            "imageUrl": "/images/Marketing-image3.png"
+            "imageUrl": "/images/Marketing-image3.png",
+            "description": "A premium men's clothing item."
         },
         {
-            "id": 12,
+            "id": "12",
             "name": "Product 12",
             "price": 49.99,
             "category": "clothing",
             "subcategory": "men",
-            "imageUrl": "/images/Marketing-image3.png"
+            "imageUrl": "/images/Marketing-image3.png",
+            "description": "A stylish men's clothing item."
         },
         {
-            "id": 13,
+            "id": "13",
             "name": "Product 13",
             "price": 29.99,
             "category": "clothing",
             "subcategory": "women",
-            "imageUrl": "/images/Marketing-image3.png"
+            "imageUrl": "/images/Marketing-image3.png",
+            "description": "An affordable women's clothing item."
         },
         {
-            "id": 14,
+            "id": "14",
             "name": "Product 14",
             "price": 39.99,
             "category": "clothing",
             "subcategory": "men",
-            "imageUrl": "/images/Marketing-image3.png"
+            "imageUrl": "/images/Marketing-image3.png",
+            "description": "A fashionable men's clothing item."
         },
         {
-            "id": 15,
+            "id": "15",
             "name": "Product 15",
             "price": 59.99,
             "category": "clothing",
             "subcategory": "kids",
-            "imageUrl": "/images/Marketing-image3.png"
+            "imageUrl": "/images/Marketing-image3.png",
+            "description": "A high-quality kids' clothing item."
         }
     ],
     "total": 15
