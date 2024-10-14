@@ -2,27 +2,24 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, Menu, ShoppingCart, UserRound } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 // Array for the left section
 const leftSection = [
   { label: "Men", href: "/clothing/men" },
-  { label: "Women", href: "/category/women" },
-  { label: "Kids", href: "/category/kids" },
-  { label: "On Sale", href: "/category/on-sale" },
+  { label: "Women", href: "/clothing/women" },
+  { label: "Kids", href: "/clothing/kids" },
+  { label: "On Sale", href: "/clothing/on-sale" },
 ];
 
 // Array for the right section
 const rightSection = [
   { label: "Profile", href: "/profile", icon: <UserRound size={24} /> },
-  {
-    label: "All Categories",
-    href: "/category/all",
-    icon: <Heart size={24} />,
-  },
   { label: "Cart", href: "/cart", icon: <ShoppingCart size={24} /> },
 ];
 
 export const MobileNav = () => {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   useEffect(() => {
     if (isMenuOpen) {
@@ -63,9 +60,8 @@ export const MobileNav = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-black z-40 transform transition-transform duration-300 ease-in-out ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed inset-0 bg-black z-40 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex justify-end p-4">
           <button
@@ -80,7 +76,7 @@ export const MobileNav = () => {
             <Link
               key={index}
               href={item.href}
-              className="text-lg font-semibold"
+              className={`text-lg font-semibold ${pathname === item.href ? "text-red-600" : ""}`}
               onClick={() => setIsMenuOpen(false)}
             >
               {item.label}
@@ -91,7 +87,7 @@ export const MobileNav = () => {
               <Link
                 key={index}
                 href={item.href}
-                className="text-lg font-semibold"
+                className={`text-lg font-semibold ${pathname === item.href ? "text-red-600" : ""}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 <div className="flex flex-col items-center">

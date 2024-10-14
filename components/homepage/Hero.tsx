@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 export const Hero = () => {
   return (
@@ -24,10 +25,10 @@ export const Hero = () => {
           Up to <span className="font-bold">60% off</span> on all items till{" "}
           <span className="font-bold">September 11</span>
         </h1>
-        <button className="bg-red-600 text-white px-4 py-2 sm:px-6 sm:py-4 rounded-lg font-medium flex items-center transition duration-500 group">
+        <Link prefetch href='/clothing/on-sale' className="bg-red-600 text-white px-4 py-2 sm:px-6 sm:py-4 rounded-lg font-medium flex items-center transition duration-500 group">
           Shop now
           <ChevronRight className="transform group-hover:translate-x-2 transition-transform duration-700" />
-        </button>
+        </Link>
       </div>
     </section>
   );

@@ -10,3 +10,18 @@ export interface Subcategory {
   name: string;
   categoryId: number;
 }
+
+export interface Product {
+  id: number;
+  name: string;
+  price: number;
+  category: string;
+  subcategory: string;
+  imageUrl: string;
+  description: string;
+}
+
+export interface ProductsData {
+  products: Product[];
+  total: number;
+}
