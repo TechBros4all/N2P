@@ -39,7 +39,8 @@ export async function fetchProductsByCategory(
   };
 }
 
-export async function fetchProductById(id: string) {
+export async function fetchProductById(id: Number) {
+  console.log(id);
   const res = await fetch(`/products.json`);
   if (!res.ok) {
     throw new Error("Failed to fetch products");
@@ -47,6 +48,7 @@ export async function fetchProductById(id: string) {
 
   const data = await res.json();
   const product = data.products.find((product: any) => product.id === id);
+  console.log(product);
 
   if (!product) {
     throw new Error("Product not found");
