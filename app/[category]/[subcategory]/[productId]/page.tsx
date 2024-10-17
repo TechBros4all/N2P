@@ -25,6 +25,8 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
   const productId = Number(usePathname().split("/").pop()) || 0;
   const { category, subcategory } = params;
   const [product, setProduct] = useState<Product | null>(null);
+  const [selectedColor, setSelectedColor] = useState<string | null>(null);
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
@@ -150,36 +152,62 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
                 {(product.price / 12).toFixed(2)}/month
               </p>
             </div>
-            <div className="border-b border-b-gray-100 w-full h-[2px]" />
+            <div className="bg-gray-100 w-full h-[2px]" />
             <div className="w-full space-y-4">
               <p className="font-medium text-[16px]">Choose a Color</p>
               <div className="flex items-center gap-5">
                 {product.colors?.map((color, i) => (
                   <div
+                    onClick={() => setSelectedColor(color)}
                     key={i}
-                    className="w-[44px] h-[44px] rounded-[40px]"
-                    style={{ backgroundColor: color }}
-                  ></div>
-                ))}
-              </div>
-            </div>
-            <div className="border-b border-b-gray-100 w-full h-[2px]" />
-            <div className="w-full">
-              <p className="font-medium text-[16px] mb-2">Select Size</p>
-              <div className="flex flex-wrap gap-2">
-                {product.sizes?.map((size, i) => (
-                  <button
-                    key={i}
-                    className="px-4 py-2 border border-gray-300 rounded-md hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className={`w-[58px] h-[58px] rounded-full border cursor-pointer p-[6px] transition overflow-hidden ${
+                      selectedColor === color
+                        ? "border-[2px]"
+                        : "border-transparent"
+                    }`}
+                    style={{
+                      borderColor:
+                        selectedColor === color ? "#F56630" : "transparent",
+                    }}
                   >
-                    {size}
-                  </button>
+                    <div
+                      style={{ backgroundColor: color }}
+                      className="w-full h-full rounded-full shadow-black shadow-sm"
+                    />
+                  </div>
                 ))}
               </div>
             </div>
-            <div className="border-b border-b-gray-100 w-full h-[2px]" />
-            <div className="w-full">
-              <p className="font-medium text-[16px] mb-2">Quantity</p>
+            <div className="bg-gray-100 w-full h-[2px]" />
+            <div className="w-full space-y-4">
+              <p className="font-medium text-[16px]">Select Size</p>
+              <div className="flex items-center gap-5">
+                {product.sizes?.map((size, i) => (
+                  <div
+                    key={i}
+                    onClick={() => setSelectedSize(size)}
+                    className={`rounded-[40px] w-[70px] h-[56px] p-[6px] border cursor-pointer transition ${
+                      selectedSize === size
+                        ? "border-[2px] border-[#F56630]"
+                        : "border-transparent"
+                    }`}
+                  >
+                    <button
+                      className={`px-4 py-2 ${
+                        selectedSize === size
+                          ? "bg-[#FFECE5] text-[#F56630]"
+                          : "bg-gray-100 text-gray-600"
+                      } text-[14px] rounded-[40px] w-full h-full`}
+                    >
+                      {size}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-gray-100 w-full h-[2px]" />
+            <div className="w-full space-y-5">
+              <p className="font-medium text-[16px]">Quantity</p>
               <input
                 type="number"
                 min="1"
