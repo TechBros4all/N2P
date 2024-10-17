@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
+import { Inter } from "next/font/google";
 
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 export const metadata: Metadata = {
   title: "N2P | Nothing To Prove",
-  description: "The official website of the 'Nothing To Prove' streetwear brand.",
+  description:
+    "The official website of the 'Nothing To Prove' streetwear brand.",
   openGraph: {
     title: "N2P | Nothing To Prove",
-    description: "A streetwear brand that conveys the idea that true style and personal worth do not need validation from others.",
+    description:
+      "A streetwear brand that conveys the idea that true style and personal worth do not need validation from others.",
     url: "https://www.nth2prove.shop",
     images: [
       {
@@ -25,7 +32,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@yourTwitterHandle",
     title: "N2P | Nothing To Prove",
-    description: "A streetwear brand that conveys the idea that true style and personal worth do not need validation from others.",
+    description:
+      "A streetwear brand that conveys the idea that true style and personal worth do not need validation from others.",
     images: "https://www.nth2prove.shop/images/logo.png",
   },
 };
@@ -58,7 +66,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body suppressHydrationWarning className="antialiased">
+      <body
+        suppressHydrationWarning
+        className={`antialiased ${inter.className}`}
+      >
         {children}
         <ToastContainer />
       </body>

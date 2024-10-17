@@ -1,139 +1,214 @@
 {
     "products": [
         {
-            "id": "1",
+            "id": 1,
             "name": "Product 1",
             "price": 29.99,
             "category": "clothing",
             "subcategory": "men",
             "imageUrl": "/images/Marketing-image3.png",
-            "description": "A stylish men's clothing item."
+            "description": "A stylish men's clothing item.",
+            "sizes": ["S", "M", "L", "XL"],
+            "images": ["/images/Marketing-image3.png"],
+            "reviewCount": 24,
+            "rating": 4.2,
+            "colors": ["blue", "black", "gray"]
         },
         {
-            "id": "2",
+            "id": 2,
             "name": "Product 2",
             "price": 49.99,
             "category": "clothing",
             "subcategory": "men",
             "imageUrl": "/images/Marketing-image3.png",
-            "description": "A premium quality men's clothing item."
+            "description": "A premium quality men's clothing item.",
+            "sizes": ["M", "L", "XL"],
+            "images": ["/images/Marketing-image3.png"],
+            "reviewCount": 36,
+            "rating": 4.5,
+            "colors": ["black", "navy", "white"]
         },
         {
-            "id": "3",
+            "id": 3,
             "name": "Product 3",
             "price": 39.99,
             "category": "clothing",
             "subcategory": "women",
             "imageUrl": "/images/Marketing-image3.png",
-            "description": "A fashionable women's clothing item."
+            "description": "A fashionable women's clothing item.",
+            "sizes": ["XS", "S", "M", "L"],
+            "images": ["/images/Marketing-image3.png"],
+            "reviewCount": 18,
+            "rating": 4.1,
+            "colors": ["red", "green", "black"]
         },
         {
-            "id": "4",
+            "id": 4,
             "name": "Product 4",
             "price": 19.99,
             "category": "clothing",
             "subcategory": "women",
             "imageUrl": "/images/Marketing-image3.png",
-            "description": "An affordable women's clothing item."
+            "description": "An affordable women's clothing item.",
+            "sizes": ["XS", "S", "M"],
+            "images": ["/images/Marketing-image3.png"],
+            "reviewCount": 12,
+            "rating": 3.8,
+            "colors": ["yellow", "pink", "blue"]
         },
         {
-            "id": "5",
+            "id": 5,
             "name": "Product 5",
             "price": 59.99,
             "category": "clothing",
             "subcategory": "women",
             "imageUrl": "/images/Marketing-image3.png",
-            "description": "A high-quality women's clothing item."
+            "description": "A high-quality women's clothing item.",
+            "sizes": ["S", "M", "L", "XL"],
+            "images": ["/images/Marketing-image3.png"],
+            "reviewCount": 29,
+            "rating": 4.4,
+            "colors": ["white", "beige", "black"]
         },
         {
-            "id": "6",
+            "id": 6,
             "name": "Product 6",
             "price": 79.99,
             "category": "clothing",
             "subcategory": "men",
             "imageUrl": "/images/Marketing-image3.png",
-            "description": "A luxury men's clothing item."
+            "description": "A luxury men's clothing item.",
+            "sizes": ["M", "L", "XL", "XXL"],
+            "images": ["/images/Marketing-image3.png"],
+            "reviewCount": 40,
+            "rating": 4.7,
+            "colors": ["black", "charcoal"]
         },
         {
-            "id": "7",
+            "id": 7,
             "name": "Product 7",
             "price": 9.99,
             "category": "clothing",
             "subcategory": "kids",
             "imageUrl": "/images/Marketing-image3.png",
-            "description": "A budget-friendly kids' clothing item."
+            "description": "A budget-friendly kids' clothing item.",
+            "sizes": ["2T", "3T", "4T"],
+            "images": ["/images/Marketing-image3.png"],
+            "reviewCount": 8,
+            "rating": 3.9,
+            "colors": ["blue", "green", "yellow"]
         },
         {
-            "id": "8",
+            "id": 8,
             "name": "Product 8",
             "price": 69.99,
             "category": "clothing",
             "subcategory": "kids",
             "imageUrl": "/images/Marketing-image3.png",
-            "description": "A premium kids' clothing item."
+            "description": "A premium kids' clothing item.",
+            "sizes": ["S", "M", "L"],
+            "images": ["/images/Marketing-image3.png"],
+            "reviewCount": 15,
+            "rating": 4.3,
+            "colors": ["pink", "purple"]
         },
         {
-            "id": "9",
+            "id": 9,
             "name": "Product 9",
             "price": 89.99,
             "category": "clothing",
             "subcategory": "kids",
             "imageUrl": "/images/Marketing-image3.png",
-            "description": "A high-end kids' clothing item."
+            "description": "A high-end kids' clothing item.",
+            "sizes": ["S", "M", "L"],
+            "images": ["/images/Marketing-image3.png"],
+            "reviewCount": 10,
+            "rating": 4.5,
+            "colors": ["white", "gray"]
         },
         {
-            "id": "10",
+            "id": 10,
             "name": "Product 10",
             "price": 99.99,
             "category": "clothing",
             "subcategory": "kids",
             "imageUrl": "/images/Marketing-image3.png",
-            "description": "A luxury kids' clothing item."
+            "description": "A luxury kids' clothing item.",
+            "sizes": ["M", "L"],
+            "images": ["/images/Marketing-image3.png"],
+            "reviewCount": 6,
+            "rating": 4.6,
+            "colors": ["black", "navy"]
         },
         {
-            "id": "11",
+            "id": 11,
             "name": "Product 11",
             "price": 79.99,
             "category": "clothing",
             "subcategory": "men",
             "imageUrl": "/images/Marketing-image3.png",
-            "description": "A premium men's clothing item."
+            "description": "A premium men's clothing item.",
+            "sizes": ["M", "L", "XL"],
+            "images": ["/images/Marketing-image3.png"],
+            "reviewCount": 22,
+            "rating": 4.4,
+            "colors": ["gray", "black", "brown"]
         },
         {
-            "id": "12",
+            "id": 12,
             "name": "Product 12",
             "price": 49.99,
             "category": "clothing",
             "subcategory": "men",
             "imageUrl": "/images/Marketing-image3.png",
-            "description": "A stylish men's clothing item."
+            "description": "A stylish men's clothing item.",
+            "sizes": ["S", "M", "L"],
+            "images": ["/images/Marketing-image3.png"],
+            "reviewCount": 30,
+            "rating": 4.2,
+            "colors": ["blue", "white"]
         },
         {
-            "id": "13",
+            "id": 13,
             "name": "Product 13",
             "price": 29.99,
             "category": "clothing",
             "subcategory": "women",
             "imageUrl": "/images/Marketing-image3.png",
-            "description": "An affordable women's clothing item."
+            "description": "An affordable women's clothing item.",
+            "sizes": ["XS", "S", "M"],
+            "images": ["/images/Marketing-image3.png"],
+            "reviewCount": 9,
+            "rating": 3.7,
+            "colors": ["purple", "pink", "gray"]
         },
         {
-            "id": "14",
+            "id": 14,
             "name": "Product 14",
             "price": 39.99,
             "category": "clothing",
             "subcategory": "men",
             "imageUrl": "/images/Marketing-image3.png",
-            "description": "A fashionable men's clothing item."
+            "description": "A fashionable men's clothing item.",
+            "sizes": ["S", "M", "L"],
+            "images": ["/images/Marketing-image3.png"],
+            "reviewCount": 25,
+            "rating": 4.1,
+            "colors": ["navy", "green"]
         },
         {
-            "id": "15",
+            "id": 15,
             "name": "Product 15",
             "price": 59.99,
             "category": "clothing",
             "subcategory": "kids",
             "imageUrl": "/images/Marketing-image3.png",
-            "description": "A high-quality kids' clothing item."
+            "description": "A high-quality kids' clothing item.",
+            "sizes": ["S", "M", "L"],
+            "images": ["/images/Marketing-image3.png"],
+            "reviewCount": 14,
+            "rating": 4.3,
+            "colors": ["red", "blue"]
         }
     ],
     "total": 15

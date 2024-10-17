@@ -19,6 +19,11 @@ export interface Product {
   subcategory: string;
   imageUrl: string;
   description: string;
+  sizes: string[];
+  images: string[];
+  reviewCount: number;
+  rating: number;
+  colors: string[];
 }
 
 export interface ProductsData {
