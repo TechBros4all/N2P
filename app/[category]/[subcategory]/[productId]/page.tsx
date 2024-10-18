@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Product } from "@/types/types";
 import { fetchProductById } from "../data";
+import { Minus, Plus } from "lucide-react";
+import storeIcon from "@/public/icons/store.svg";
 
 interface ProductPageProps {
   params: { category: string; subcategory: string };
@@ -25,6 +27,8 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
   const productId = Number(usePathname().split("/").pop()) || 0;
   const { category, subcategory } = params;
   const [product, setProduct] = useState<Product | null>(null);
+  const [selectedColor, setSelectedColor] = useState<string | null>(null);
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
@@ -123,7 +127,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
               ))}
             </div>
           </div>
-          <div className="w-full h-full space-y-6">
+          <div className="w-full h-full space-y-5">
             <div className="w-full space-y-3">
               <h1 className="font-semibold text-[32px]">{product.name}</h1>
               <p className="text-gray-500 text-[14px] font-normal">
@@ -150,47 +154,102 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
                 {(product.price / 12).toFixed(2)}/month
               </p>
             </div>
-            <div className="border-b border-b-gray-100 w-full h-[2px]" />
+            <div className="bg-gray-100 w-full h-[2px]" />
             <div className="w-full space-y-4">
               <p className="font-medium text-[16px]">Choose a Color</p>
               <div className="flex items-center gap-5">
                 {product.colors?.map((color, i) => (
                   <div
+                    onClick={() => setSelectedColor(color)}
                     key={i}
-                    className="w-[44px] h-[44px] rounded-[40px]"
-                    style={{ backgroundColor: color }}
-                  ></div>
-                ))}
-              </div>
-            </div>
-            <div className="border-b border-b-gray-100 w-full h-[2px]" />
-            <div className="w-full">
-              <p className="font-medium text-[16px] mb-2">Select Size</p>
-              <div className="flex flex-wrap gap-2">
-                {product.sizes?.map((size, i) => (
-                  <button
-                    key={i}
-                    className="px-4 py-2 border border-gray-300 rounded-md hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className={`w-[58px] h-[58px] rounded-full border cursor-pointer p-[6px] transition overflow-hidden ${
+                      selectedColor === color
+                        ? "border-[2px]"
+                        : "border-transparent"
+                    }`}
+                    style={{
+                      borderColor:
+                        selectedColor === color ? "#F56630" : "transparent",
+                    }}
                   >
-                    {size}
-                  </button>
+                    <div
+                      style={{ backgroundColor: color }}
+                      className="w-full h-full rounded-full shadow-black shadow-sm"
+                    />
+                  </div>
                 ))}
               </div>
             </div>
-            <div className="border-b border-b-gray-100 w-full h-[2px]" />
-            <div className="w-full">
-              <p className="font-medium text-[16px] mb-2">Quantity</p>
-              <input
-                type="number"
-                min="1"
-                defaultValue="1"
-                className="w-20 px-2 py-1 border border-gray-300 rounded-md"
-              />
+            <div className="bg-gray-100 w-full h-[2px]" />
+            <div className="w-full space-y-4">
+              <p className="font-medium text-[16px]">Select Size</p>
+              <div className="flex items-center gap-5">
+                {product.sizes?.map((size, i) => (
+                  <div
+                    key={i}
+                    onClick={() => setSelectedSize(size)}
+                    className={`rounded-[40px] w-[70px] h-[56px] p-[6px] border cursor-pointer transition ${
+                      selectedSize === size
+                        ? "border-[2px] border-[#F56630]"
+                        : "border-transparent"
+                    }`}
+                  >
+                    <button
+                      className={`px-4 py-2 ${
+                        selectedSize === size
+                          ? "bg-[#FFECE5] text-[#F56630]"
+                          : "bg-gray-100 text-gray-600"
+                      } text-[14px] rounded-[40px] w-full h-full`}
+                    >
+                      {size}
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="w-full">
-              <button className="w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 transition">
+            <div className="bg-gray-100 w-full h-[2px]" />
+            <div className="w-full space-y-6">
+              <p className="font-medium text-[16px]">Quantity</p>
+              <div className="w-fit flex items-center gap-4">
+                <div className="bg-gray-100 rounded-[40px] w-[205px] flex items-center justify-between py-5 px-[30px] font-semibold">
+                  <Minus size={24} className="text-gray-500" />
+                  <span className="text-[20px] text-[#F56630]">1</span>
+                  <Plus size={24} className="text-[#F56630]" />
+                </div>
+                <div className="max-w-[125px] text-gray-500 font-normal text-[14px]">
+                  <p>
+                    Only <span className="text-[#F56630]">12 Items</span> Left!
+                    Don&rsquo;t miss it
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="w-full font-semibold text-[16px] flex items-center gap-4">
+              <button className="rounded-[30px] w-[194px] h-[55px] flex items-center justify-center bg-[#EB5017] text-white border-none outline-none">
+                Buy Now
+              </button>
+              <button className="rounded-[30px] w-[194px] h-[55px] flex items-center justify-center border-[1.5px] border-[#F56630] text-[#F56630]">
                 Add to Cart
               </button>
+            </div>
+            <div className="w-full bg-[#D9D9D9] py-7 px-8 rounded-[10px]">
+              <div className="flex items-center gap-4">
+                <Image
+                  src={storeIcon}
+                  alt="Store Icon"
+                  width={33.12}
+                  height={32}
+                  priority
+                />
+                <div className="space-y-1">
+                  <p className="text-gray-900 font-semibold text-[16px]">
+                    Free Delivery
+                  </p>
+                  <p className="text-gray-500 text-[14px] font-normal underline">
+                    Enter your Postal Code for Delivery Availability
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
