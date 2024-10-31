@@ -39,7 +39,9 @@ export const PcNav = () => {
             <Link
               key={index}
               href={item.href}
-              className={`text-gray-900 font-semibold text-[16px] ${pathname === item.href ? "text-red-600" : ""}`}
+              className={`text-gray-900 font-semibold text-[16px] ${
+                pathname === item.href ? "text-red-600" : ""
+              }`}
             >
               {item.label}
             </Link>
@@ -84,8 +86,13 @@ export const PcNav = () => {
                 }}
               />
             </div>
-            <p className={`text-lg font-semibold ${pathname === item.href ? "text-red-600" : ""}`}
-            >{item.label}</p>
+            <p
+              className={`text-lg font-semibold ${
+                pathname === item.href ? "text-red-600" : ""
+              }`}
+            >
+              {item.label}
+            </p>
           </Link>
         ))}
       </div>
