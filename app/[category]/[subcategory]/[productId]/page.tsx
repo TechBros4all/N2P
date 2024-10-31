@@ -49,8 +49,8 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
     return (
       <main>
         <Header />
-        <section className="container xl:px-28 pt-4 pb-12 min-h-screen flex flex-col items-center justify-center">
-          <p className="text-xl text-gray-700 mb-4">{error}</p>
+        <section className="container xl:px-28 pt-4 pb-12 min-h-screen flex flex-col items-center justify-center px-4">
+          <p className="text-xl text-gray-700 mb-4 text-center">{error}</p>
           <button
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
             onClick={() => router.back()}
@@ -67,7 +67,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
     return (
       <main>
         <Header />
-        <section className="container xl:px-28 pt-4 pb-12 min-h-screen flex items-center justify-center">
+        <section className="container xl:px-28 pt-4 pb-12 min-h-screen flex items-center justify-center px-4">
           <p className="text-xl text-gray-700">Loading...</p>
         </section>
         <Footer />
@@ -78,9 +78,9 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
   return (
     <main>
       <Header />
-      <section className="container xl:px-28 pt-4 pb-12 min-h-screen text-gray-900">
-        <Breadcrumb className="py-4">
-          <BreadcrumbList>
+      <section className="container xl:px-28 pt-4 pb-12 min-h-screen h-fit text-gray-900 px-4 sm:px-6">
+        <Breadcrumb className="py-4 overflow-x-auto">
+          <BreadcrumbList className="flex flex-wrap">
             <BreadcrumbItem>
               <BreadcrumbPage>Home</BreadcrumbPage>
             </BreadcrumbItem>
@@ -98,18 +98,20 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        <div className="w-full h-[800px] lg:flex gap-10">
-          <div className="w-full h-full flex flex-col gap-y-5">
-            <div className="w-full h-[calc(100%-120px)] relative overflow-hidden rounded-[10px]">
+        <div className="w-full flex flex-col lg:flex-row gap-10">
+          {/* Product Images */}
+          <div className="w-full lg:w-1/2 space-y-5">
+            <div className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[665px] xl:h-[800px] relative overflow-hidden rounded-[10px]">
               <Image
                 src={product.imageUrl || "/default-image.png"}
                 alt={product.name}
                 fill
-                sizes="auto"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 priority
+                className="object-cover"
               />
             </div>
-            <div className="w-full h-[120px] flex items-center gap-5 justify-between">
+            <div className="w-full h-[80px] sm:h-[120px] flex items-center gap-3 sm:gap-5 justify-between">
               {Array.from({ length: 4 }).map((_, i) => (
                 <div
                   key={i}
@@ -119,7 +121,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
                     src={product.imageUrl || "/default-image.png"}
                     alt={`${product.name} - Image ${i + 1}`}
                     fill
-                    sizes="auto"
+                    sizes="(max-width: 768px) 25vw, (max-width: 1200px) 12.5vw, 8.33vw"
                     priority
                     className="object-cover"
                   />
@@ -127,10 +129,14 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
               ))}
             </div>
           </div>
-          <div className="w-full h-full space-y-5">
+
+          {/* Product Details */}
+          <div className="w-full lg:w-1/2 space-y-4 sm:space-y-5">
             <div className="w-full space-y-3">
-              <h1 className="font-semibold text-[32px]">{product.name}</h1>
-              <p className="text-gray-500 text-[14px] font-normal">
+              <h1 className="font-semibold text-2xl sm:text-[32px]">
+                {product.name}
+              </h1>
+              <p className="text-gray-500 text-[12px] sm:text-[14px] font-normal">
                 {product.description}
               </p>
               <div className="flex items-center gap-4">
@@ -139,30 +145,34 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
                     <PiStarFill
                       key={i}
                       color={i < product.rating ? "#F56630" : "#C6DDF7"}
-                      className="cursor-pointer"
+                      className="cursor-pointer text-sm sm:text-base"
                     />
                   ))}
                 </div>
-                <span className="text-gray-700 text-[14px]">
+                <span className="text-gray-700 text-[12px] sm:text-[14px]">
                   ({product.reviewCount})
                 </span>
               </div>
             </div>
             <div className="w-full">
-              <p className="font-bold text-2xl">
+              <p className="font-bold text-xl sm:text-2xl">
                 $ {product.price.toFixed(2)} or $
                 {(product.price / 12).toFixed(2)}/month
               </p>
             </div>
             <div className="bg-gray-100 w-full h-[2px]" />
+
+            {/* Color Selection */}
             <div className="w-full space-y-4">
-              <p className="font-medium text-[16px]">Choose a Color</p>
-              <div className="flex items-center gap-5">
+              <p className="font-medium text-[14px] sm:text-[16px]">
+                Choose a Color
+              </p>
+              <div className="flex items-center gap-3 sm:gap-5 overflow-x-auto pb-2">
                 {product.colors?.map((color, i) => (
                   <div
                     onClick={() => setSelectedColor(color)}
                     key={i}
-                    className={`w-[58px] h-[58px] rounded-full border cursor-pointer p-[6px] transition overflow-hidden ${
+                    className={`flex-shrink-0 w-[48px] h-[48px] sm:w-[58px] sm:h-[58px] rounded-full border cursor-pointer p-[4px] sm:p-[6px] transition overflow-hidden ${
                       selectedColor === color
                         ? "border-[2px]"
                         : "border-transparent"
@@ -181,25 +191,29 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
               </div>
             </div>
             <div className="bg-gray-100 w-full h-[2px]" />
+
+            {/* Size Selection */}
             <div className="w-full space-y-4">
-              <p className="font-medium text-[16px]">Select Size</p>
-              <div className="flex items-center gap-5">
+              <p className="font-medium text-[14px] sm:text-[16px]">
+                Select Size
+              </p>
+              <div className="flex items-center gap-3 sm:gap-5 overflow-x-auto pb-2">
                 {product.sizes?.map((size, i) => (
                   <div
                     key={i}
                     onClick={() => setSelectedSize(size)}
-                    className={`rounded-[40px] w-[70px] h-[56px] p-[6px] border cursor-pointer transition ${
+                    className={`flex-shrink-0 rounded-[40px] w-[60px] sm:w-[70px] h-[48px] sm:h-[56px] p-[4px] sm:p-[6px] border cursor-pointer transition ${
                       selectedSize === size
                         ? "border-[2px] border-[#F56630]"
                         : "border-transparent"
                     }`}
                   >
                     <button
-                      className={`px-4 py-2 ${
+                      className={`px-3 sm:px-4 py-1 sm:py-2 ${
                         selectedSize === size
                           ? "bg-[#FFECE5] text-[#F56630]"
                           : "bg-gray-100 text-gray-600"
-                      } text-[14px] rounded-[40px] w-full h-full`}
+                      } text-[12px] sm:text-[14px] rounded-[40px] w-full h-full`}
                     >
                       {size}
                     </button>
@@ -208,15 +222,19 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
               </div>
             </div>
             <div className="bg-gray-100 w-full h-[2px]" />
-            <div className="w-full space-y-6">
-              <p className="font-medium text-[16px]">Quantity</p>
-              <div className="w-fit flex items-center gap-4">
-                <div className="bg-gray-100 rounded-[40px] w-[205px] flex items-center justify-between py-5 px-[30px] font-semibold">
-                  <Minus size={24} className="text-gray-500" />
-                  <span className="text-[20px] text-[#F56630]">1</span>
-                  <Plus size={24} className="text-[#F56630]" />
+
+            {/* Quantity */}
+            <div className="w-full space-y-4 sm:space-y-6">
+              <p className="font-medium text-[14px] sm:text-[16px]">Quantity</p>
+              <div className="w-full flex flex-col sm:flex-row items-center gap-4">
+                <div className="bg-gray-100 rounded-[40px] w-full sm:w-[205px] flex items-center justify-between py-3 sm:py-5 px-[20px] sm:px-[30px] font-semibold">
+                  <Minus size={20} className="text-gray-500" />
+                  <span className="text-[16px] sm:text-[20px] text-[#F56630]">
+                    1
+                  </span>
+                  <Plus size={20} className="text-[#F56630]" />
                 </div>
-                <div className="max-w-[125px] text-gray-500 font-normal text-[14px]">
+                <div className="max-w-full sm:max-w-[125px] text-gray-500 font-normal text-[12px] sm:text-[14px] text-center sm:text-left">
                   <p>
                     Only <span className="text-[#F56630]">12 Items</span> Left!
                     Don&rsquo;t miss it
@@ -224,28 +242,33 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
                 </div>
               </div>
             </div>
-            <div className="w-full font-semibold text-[16px] flex items-center gap-4">
-              <button className="rounded-[30px] w-[194px] h-[55px] flex items-center justify-center bg-[#EB5017] text-white border-none outline-none">
+
+            {/* Action Buttons */}
+            <div className="w-full font-semibold text-[14px] sm:text-[16px] flex flex-col sm:flex-row items-center gap-4">
+              <button className="rounded-[30px] w-full sm:w-[194px] h-[50px] sm:h-[55px] flex items-center justify-center bg-[#EB5017] text-white border-none outline-none mb-2 sm:mb-0">
                 Buy Now
               </button>
-              <button className="rounded-[30px] w-[194px] h-[55px] flex items-center justify-center border-[1.5px] border-[#F56630] text-[#F56630]">
+              <button className="rounded-[30px] w-full sm:w-[194px] h-[50px] sm:h-[55px] flex items-center justify-center border-[1.5px] border-[#F56630] text-[#F56630]">
                 Add to Cart
               </button>
             </div>
-            <div className="w-full bg-[#D9D9D9] py-7 px-8 rounded-[10px]">
-              <div className="flex items-center gap-4">
+
+            {/* Free Delivery */}
+            <div className="w-full bg-[#D9D9D9] py-5 sm:py-7 px-5 sm:px-8 rounded-[10px]">
+              <div className="flex items-center gap-3 sm:gap-4">
                 <Image
                   src={storeIcon}
                   alt="Store Icon"
-                  width={33.12}
-                  height={32}
+                  width={28}
+                  height={28}
                   priority
+                  className="w-[28px] h-[28px] sm:w-[33.12px] sm:h-[32px]"
                 />
                 <div className="space-y-1">
-                  <p className="text-gray-900 font-semibold text-[16px]">
+                  <p className="text-gray-900 font-semibold text-[14px] sm:text-[16px]">
                     Free Delivery
                   </p>
-                  <p className="text-gray-500 text-[14px] font-normal underline">
+                  <p className="text-gray-500 text-[12px] sm:text-[14px] font-normal underline">
                     Enter your Postal Code for Delivery Availability
                   </p>
                 </div>
