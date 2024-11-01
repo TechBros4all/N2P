@@ -14,12 +14,20 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { ShoppingCart } from "lucide-react";
-import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 import { Separator } from "@/components/ui/separator";
 import AutoResizingGrid from "@/components/AutoResizingGrid/AutoResizingGrid";
 import Link from "next/link";
-import { Slide, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Slide, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { fetchProductsByCategory } from "./data";
 
 const ITEMS_PER_PAGE = 9;
@@ -48,18 +56,17 @@ export default function CategoryPage({
 
   const handleAddToCart = () => {
     // action to add product to cart
-    toast.success("Added to cart Succeefully !",
-      {
-        position: "top-right",
-        autoClose: 3500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Slide
-      });
+    toast.success("Added to cart Succeefully !", {
+      position: "top-right",
+      autoClose: 3500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Slide,
+    });
   };
 
   const totalPages = Math.ceil(totalResults / ITEMS_PER_PAGE);
@@ -98,7 +105,12 @@ export default function CategoryPage({
 
       // Show ellipsis or second page
       if (page > 3) {
-        items.push(<PaginationEllipsis key="ellipsis-start" className="text-xs md:text-sm" />);
+        items.push(
+          <PaginationEllipsis
+            key="ellipsis-start"
+            className="text-xs md:text-sm"
+          />
+        );
       } else {
         items.push(
           <PaginationItem key={2}>
@@ -130,7 +142,12 @@ export default function CategoryPage({
 
       // Show ellipsis or second-to-last page
       if (page < totalPages - 2) {
-        items.push(<PaginationEllipsis key="ellipsis-end" className="text-xs md:text-sm" />);
+        items.push(
+          <PaginationEllipsis
+            key="ellipsis-end"
+            className="text-xs md:text-sm"
+          />
+        );
       } else {
         items.push(
           <PaginationItem key={totalPages - 1}>
@@ -166,7 +183,7 @@ export default function CategoryPage({
     <main>
       <Header />
       <section className="container xl:px-28 py-4 min-h-screen">
-        <div className="py-4 flex items-center justify-between flex-wrap space-y-4">
+        <div className="py-4 flex items-center justify-between flex-wrap md:flex-nowrap flex-row gap-4 text-xs md:text-[16px]">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
@@ -178,16 +195,17 @@ export default function CategoryPage({
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>
-                  {subcategory}
-                </BreadcrumbPage>
+                <BreadcrumbPage>{subcategory}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
 
           <p className="text-xs md:text-[16px] font-normal text-[#101928]">
             {totalResults > 0
-              ? `Showing ${(page - 1) * ITEMS_PER_PAGE + 1} - ${Math.min(page * ITEMS_PER_PAGE, totalResults)} of ${totalResults} results`
+              ? `Showing ${(page - 1) * ITEMS_PER_PAGE + 1} - ${Math.min(
+                  page * ITEMS_PER_PAGE,
+                  totalResults
+                )} of ${totalResults} results`
               : "No results found"}
           </p>
         </div>
@@ -209,7 +227,10 @@ export default function CategoryPage({
                 <div className="my-4">
                   <div className="flex items-center justify-between">
                     <h2 className="font-medium text-[16px]">{product.name}</h2>
-                    <p className="flex items-center gap-0.5"><span className="text-xs">&#8358;</span>{product.price}</p>
+                    <p className="flex items-center gap-0.5">
+                      <span className="text-xs">&#8358;</span>
+                      {product.price}
+                    </p>
                   </div>
                   <p className="font-normal text-xs">
                     {product.description.length > 55
@@ -218,7 +239,10 @@ export default function CategoryPage({
                   </p>
                 </div>
               </Link>
-              <button className="py-2 px-4 flex gap-2 w-fit outline-none border border-gray-200 rounded-full text-sm font-semibold" onClick={handleAddToCart}>
+              <button
+                className="py-2 px-4 flex gap-2 w-fit outline-none border border-gray-200 rounded-full text-sm font-semibold"
+                onClick={handleAddToCart}
+              >
                 <ShoppingCart size={20} />
                 Add to Cart
               </button>
@@ -232,7 +256,9 @@ export default function CategoryPage({
             <PaginationContent className="w-full flex flex-col md:flex-row items-center justify-between p-2 md:p-4">
               <PaginationItem className="mb-2 md:mb-0">
                 <PaginationPrevious
-                  href={`/${category}/${subcategory}?page=${page > 1 ? page - 1 : 1}`}
+                  href={`/${category}/${subcategory}?page=${
+                    page > 1 ? page - 1 : 1
+                  }`}
                   className="text-sm md:text-base"
                 />
               </PaginationItem>
@@ -241,7 +267,9 @@ export default function CategoryPage({
               </div>
               <PaginationItem className="mt-2 md:mb-0">
                 <PaginationNext
-                  href={`/${category}/${subcategory}?page=${page < totalPages ? page + 1 : page}`}
+                  href={`/${category}/${subcategory}?page=${
+                    page < totalPages ? page + 1 : page
+                  }`}
                   className="text-sm md:text-base"
                 />
               </PaginationItem>
