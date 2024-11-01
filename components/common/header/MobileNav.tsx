@@ -60,8 +60,9 @@ export const MobileNav = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-black z-40 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`fixed inset-0 bg-black z-40 transform transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="flex justify-end p-4">
           <button
@@ -76,18 +77,22 @@ export const MobileNav = () => {
             <Link
               key={index}
               href={item.href}
-              className={`text-lg font-semibold ${pathname === item.href ? "text-red-600" : ""}`}
+              className={`text-lg font-semibold ${
+                pathname === item.href ? "text-red-600" : ""
+              }`}
               onClick={() => setIsMenuOpen(false)}
             >
               {item.label}
             </Link>
           ))}
-          <div className="flex space-x-8 mt-8">
+          <div className="flex items-center gap-16 mt-8">
             {rightSection.map((item, index) => (
               <Link
                 key={index}
                 href={item.href}
-                className={`text-lg font-semibold ${pathname === item.href ? "text-red-600" : ""}`}
+                className={`text-lg font-semibold ${
+                  pathname === item.href ? "text-red-600" : ""
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 <div className="flex flex-col items-center">
