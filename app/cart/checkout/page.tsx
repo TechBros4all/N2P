@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import OrderSummary from "@/components/cart/checkout/OrderSummary";
 import DeliveryInformationForm from "@/components/cart/checkout/DeliveryInformationForm";
+import PaymentInformationForm from "@/components/cart/checkout/PaymentInformationForm";
 
 const CheckoutPage = () => {
   const pathname = usePathname();
@@ -37,11 +38,13 @@ const CheckoutPage = () => {
           </BreadcrumbList>
         </Breadcrumb>
         <div className="w-full flex flex-col lg:flex-row gap-8">
-          <div className="w-full max-w-[760px] flex flex-col gap-8">
+          <div className="w-full max-w-[740px] flex flex-col gap-8">
             <OrderSummary />
             <DeliveryInformationForm />
           </div>
-          <div></div>
+          <div className="flex-1">
+            <PaymentInformationForm />
+          </div>
         </div>
       </section>
       <Footer />
