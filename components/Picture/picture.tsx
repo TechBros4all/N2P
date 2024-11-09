@@ -1,0 +1,77 @@
+import Image from "next/image";
+
+// Types
+import type { PictureProps } from "./types";
+
+// Imports
+import clsx from "clsx";
+const empty = "/images/Marketing-image1.png";
+
+const Picture: React.FC<PictureProps> = ({
+  src = empty,
+  alt = "profile picture",
+
+  size = 60,
+  width,
+  height,
+
+  style,
+  status,
+  rounded,
+  className,
+  priority = false,
+  fit = "cover",
+  resolutionMultiplier = 2,
+  containerClassName,
+  onClick,
+}) => {
+  const imageWidth = width ?? size;
+  const imageHeight = height ?? size;
+
+  const status_wh = Math.min(12, Math.floor(size / 3));
+
+  return (
+    <div
+      role={onClick ? "button" : undefined}
+      className={clsx("relative", containerClassName)}
+      onClick={onClick ? onClick : undefined}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        width={imageWidth * resolutionMultiplier}
+        height={imageHeight * resolutionMultiplier}
+        priority={priority}
+        className={clsx(
+          {
+            "rounded-full": rounded,
+          },
+          className
+        )}
+        style={{
+          objectFit: fit,
+          // Dont change the below, abeg
+          // The whole point of this component is to make sure the image is always square,
+          // or that their defined width or height doesnt change
+          // Let us be guided 😈
+          // In that case stop using my components create yours  🤷‍♀️😒
+          width: imageWidth,
+          height: imageHeight,
+          minWidth: imageWidth,
+          minHeight: imageHeight,
+          maxWidth: imageWidth,
+          maxHeight: imageHeight,
+          ...style,
+        }}
+      />
+      {status && (
+        <div
+          className="absolute right-[5%] bottom-[5%] rounded-full bg-status-success-primary border border-solid border-white"
+          style={{ width: status_wh, height: status_wh }}
+        ></div>
+      )}
+    </div>
+  );
+};
+
+export default Picture;
