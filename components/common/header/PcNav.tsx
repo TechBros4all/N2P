@@ -1,3 +1,18 @@
+import SheetCartItem from "@/components/cart/SheetCartItem";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
+import {
+  Sheet,
+  SheetDescription,
+  SheetHeader,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+  SheetClose,
+  SheetFooter,
+} from "@/components/ui/sheet";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -13,8 +28,8 @@ const leftSection = [
 // Array for the right section
 const rightSection = [
   { label: "Profile", href: "/profile", icon: "/icons/user.svg" },
-  { label: "Cart", href: "/cart", icon: "/icons/cart.svg" },
 ];
+
 export const PcNav = () => {
   const pathname = usePathname();
   return (
@@ -95,6 +110,58 @@ export const PcNav = () => {
             </p>
           </Link>
         ))}
+        <Sheet>
+          <SheetTrigger asChild>
+            <div className="flex flex-col gap-1 justify-center items-center cursor-pointer">
+              <Image
+                src={"/icons/cart.svg"}
+                alt={"cart"}
+                width={20}
+                height={20}
+                style={{
+                  width: "20px",
+                  height: "20px",
+                }}
+              />
+              <p className={`text-lg font-semibold`}>Cart</p>
+            </div>
+          </SheetTrigger>
+          <SheetContent className="w-full sm:max-w-[570px] p-10 flex flex-col gap-14">
+            <SheetHeader>
+              <SheetTitle>
+                <div className="flex items-center gap-4">
+                  <h2 className="text-xl font-semibold">My Cart</h2>
+                  <div className="rounded-[30px] w-[36px] h-[38px] bg-red-600 flex items-center justify-center">
+                    <span className="text-white text-lg font-bold">2</span>
+                  </div>
+                </div>
+              </SheetTitle>
+              <SheetDescription className="sr-only">Cart Page</SheetDescription>
+            </SheetHeader>
+            <div className="flex flex-col gap-6 overflow-y-scroll">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <SheetCartItem key={index} />
+              ))}
+            </div>
+            <SheetFooter className="w-full mt-auto">
+              <div className="w-full flex flex-col gap-6">
+                <Separator />
+                <p className="text-sm font-medium text-gray-600 flex justify-between">
+                  <span className="font-normal">Subtotal :</span> $100
+                </p>
+                <Separator />
+                <SheetClose asChild>
+                  <Button
+                    className="bg-red-600 hover:bg-red-600/90 w-full rounded-[30px]"
+                    size="lg"
+                  >
+                    Checkout
+                  </Button>
+                </SheetClose>
+              </div>
+            </SheetFooter>
+          </SheetContent>
+        </Sheet>
       </div>
     </nav>
   );
