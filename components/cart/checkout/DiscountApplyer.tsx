@@ -11,7 +11,7 @@ const DiscountApplyer = () => {
           className="h-[48px] rounded-[30px] border-none outline-none ring-0 bg-gray-50 placeholder:text-gray-400 px-5"
           placeholder="Enter Coupon Code"
         />
-        <Button className="h-[48px] rounded-[30px] bg-[#EB5017] text-white hover:bg-[#EB5017]/90 font-semibold text-[16px]">
+        <Button className="h-[48px] rounded-[30px] bg-red-600 text-white hover:bg-red-600/90 font-semibold text-[16px]">
           Apply
         </Button>
       </div>

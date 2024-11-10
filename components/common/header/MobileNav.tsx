@@ -15,7 +15,7 @@ const leftSection = [
 // Array for the right section
 const rightSection = [
   { label: "Profile", href: "/profile", icon: <UserRound size={24} /> },
-  { label: "Cart", href: "/cart", icon: <ShoppingCart size={24} /> },
+  { label: "Cart", href: "/cart/checkout", icon: <ShoppingCart size={24} /> },
 ];
 
 export const MobileNav = () => {

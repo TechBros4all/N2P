@@ -7,7 +7,7 @@ export default function OrderSummary() {
     <div className="flex flex-col gap-6 p-8 border border-1 border-gray-200 rounded-[10px]">
       <div className="flex items-center gap-4">
         <h2 className="text-xl font-semibold">Order Summary</h2>
-        <div className="rounded-[30px] w-[36px] h-[38px] bg-[#F56630] flex items-center justify-center">
+        <div className="rounded-[30px] w-[36px] h-[38px] bg-red-600 flex items-center justify-center">
           <span className="text-white text-lg font-bold">2</span>
         </div>
       </div>
