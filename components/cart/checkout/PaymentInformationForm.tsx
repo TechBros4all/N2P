@@ -8,13 +8,15 @@ import { Button } from "@/components/ui/button";
 
 const PaymentInformationForm = () => {
   return (
-    <div className="w-full border border-gray-200 rounded-[10px] p-8 flex flex-col gap-8">
-      <h2 className="text-2xl font-semibold">Payment Information</h2>
+    <div className="w-full border border-gray-200 rounded-[10px] p-4 sm:p-6 md:p-8 flex flex-col gap-4 sm:gap-6 md:gap-8">
+      <h2 className="text-xl sm:text-2xl font-semibold">Payment Information</h2>
       <div className="flex flex-col gap-4">
         <DiscountApplyer />
         <Separator />
-        <div className="flex flex-col gap-5">
-          <p className="text-[16px] text-gray-900 font-semibold">Pay With</p>
+        <div className="flex flex-col gap-3 sm:gap-5">
+          <p className="text-[15px] sm:text-[16px] text-gray-900 font-semibold">
+            Pay With
+          </p>
           <div className="flex flex-col gap-4">
             <RadioGroup defaultValue="card">
               <div className="flex items-center space-x-2">
@@ -35,7 +37,7 @@ const PaymentInformationForm = () => {
         <Separator />
         <CardInformationForm />
         <Separator />
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-3 sm:gap-4">
           <div className="flex items-center justify-between">
             <p className="font-normal text-gray-600 text-sm">Sub Total</p>
             <p className="font-medium text-gray-600 text-sm">$100</p>
@@ -50,13 +52,15 @@ const PaymentInformationForm = () => {
           </div>
         </div>
         <Separator />
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-4 sm:gap-8">
           <div className="flex items-center justify-between">
             <p className="font-normal text-gray-600 text-sm">Total</p>
-            <p className="font-medium text-gray-800 text-[16px]">$110</p>
+            <p className="font-medium text-gray-800 text-[15px] sm:text-[16px]">
+              $110
+            </p>
           </div>
           <Button
-            className="bg-red-600 hover:bg-red-600/90 max-w-[360px] rounded-[30px]"
+            className="w-full sm:max-w-[360px] bg-red-600 hover:bg-red-600/90 rounded-[30px] mx-auto"
             size="lg"
           >
             Pay $110
