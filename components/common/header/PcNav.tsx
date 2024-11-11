@@ -1,7 +1,7 @@
+"use client";
+
 import SheetCartItem from "@/components/cart/SheetCartItem";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import {
   Sheet,
@@ -16,7 +16,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import { useRouter } from "next/navigation";
 // Array for the left section
 const leftSection = [
   { label: "Men", href: "/clothing/men" },
@@ -32,6 +32,7 @@ const rightSection = [
 
 export const PcNav = () => {
   const pathname = usePathname();
+  const router = useRouter();
   return (
     <nav className="w-full flex items-center justify-between py-6 xl:px-20">
       {/* Left Section */}
@@ -154,6 +155,7 @@ export const PcNav = () => {
                   <Button
                     className="bg-red-600 hover:bg-red-600/90 w-full rounded-[30px]"
                     size="lg"
+                    onClick={() => router.push("/cart/checkout")}
                   >
                     Checkout
                   </Button>

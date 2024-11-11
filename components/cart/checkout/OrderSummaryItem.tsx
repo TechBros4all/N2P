@@ -13,17 +13,19 @@ const OrderSummaryItem = () => {
       />
       <div className="w-full flex justify-between py-5">
         <div>
-          <p className="text-lg font-semibold">
+          <p className="text-base md:text-lg font-semibold">
             Nike Blazer Low 77 Vintage X 1
           </p>
-          <p className="text-sm font-medium text-gray-600">
+          <p className="text-xs md:text-sm font-medium text-gray-600">
             <span className="font-normal">color :</span> black
           </p>
-          <p className="text-sm font-medium text-gray-600">
+          <p className="text-xs md:text-sm font-medium text-gray-600">
             <span className="font-normal">Size :</span> 42
           </p>
         </div>
-        <p className="text-gray-900 font-semibold text-[20px]">$100</p>
+        <p className="text-gray-900 font-semibold text-base md:text-[20px]">
+          $100
+        </p>
       </div>
     </div>
   );
