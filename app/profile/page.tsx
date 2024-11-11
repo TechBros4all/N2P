@@ -1,6 +1,7 @@
 import { Footer } from "@/components/common/footer";
 import { Header } from "@/components/common/header";
 import AccountOverviewTabContent from "@/components/Profile/AccountOverviewTabContent";
+import InboxTab from "@/components/Profile/InboxTab";
 import OrderHistoryTab from "@/components/Profile/OrderHistoryTab";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -48,7 +49,9 @@ const ProfilePage = () => {
             <TabsContent value="order">
               <OrderHistoryTab />
             </TabsContent>
-            <TabsContent value="inbox">Make r account here.</TabsContent>
+            <TabsContent value="inbox">
+              <InboxTab />
+            </TabsContent>
             <TabsContent value="settings">Make changes to your</TabsContent>
           </div>
         </Tabs>

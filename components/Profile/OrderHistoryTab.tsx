@@ -21,7 +21,7 @@ const OrderHistoryTab = () => {
       >
         <TabsList className="grid w-full grid-cols-2 h-fit gap-4 bg-white sticky top-0 z-10">
           <TabsTrigger
-            className="w-full items-start justify-start data-[state=active]:bg-red-100 bg-red-50 transition-all duration-500 ease-in-out border-b-2"
+            className="w-full items-start justify-start data-[state=active]:bg-red-100 bg-red-50 transition-all duration-500 ease-in-out border-b-2 text-xs md:text-lg"
             style={{
               borderRight: "0",
             }}
@@ -30,7 +30,7 @@ const OrderHistoryTab = () => {
             Completed (10)
           </TabsTrigger>
           <TabsTrigger
-            className="w-full items-start justify-start data-[state=active]:bg-red-100 bg-red-50 transition-all duration-500 ease-in-out border-b-2"
+            className="w-full items-start justify-start data-[state=active]:bg-red-100 bg-red-50 transition-all duration-500 ease-in-out border-b-2 text-xs md:text-lg"
             style={{
               borderRight: "0",
             }}
