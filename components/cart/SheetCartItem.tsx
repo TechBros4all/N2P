@@ -1,6 +1,6 @@
 import React from "react";
 import Picture from "../Picture/picture";
-import { BasketIcon } from "@/pudlic/icons";
+import { BasketIcon } from "@/public/icons";
 import { Plus, Minus } from "lucide-react";
 
 const SheetCartItem = () => {

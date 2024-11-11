@@ -60,19 +60,19 @@ export const MobileNav = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-black z-40 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 bg-white z-40 transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex justify-end p-4">
           <button
-            className="text-white text-4xl focus:outline-none"
+            className="text-black text-4xl focus:outline-none"
             onClick={() => setIsMenuOpen(false)}
           >
             &times;
           </button>
         </div>
-        <div className="flex flex-col items-center mt-8 space-y-16 text-white">
+        <div className="flex flex-col items-center mt-8 space-y-16 text-black">
           {leftSection.map((item, index) => (
             <Link
               key={index}

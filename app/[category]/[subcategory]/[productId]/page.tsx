@@ -52,7 +52,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
         <section className="container xl:px-28 pt-4 pb-12 min-h-screen flex flex-col items-center justify-center px-4">
           <p className="text-xl text-gray-700 mb-4 text-center">{error}</p>
           <button
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+            className="bg-red-600 hover:bg-red-600/90 w-full max-w-[200px] rounded-lg text-white text-center p-5 md:p-3"
             onClick={() => router.back()}
           >
             Go Back
