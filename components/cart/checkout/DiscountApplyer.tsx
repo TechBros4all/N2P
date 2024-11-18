@@ -8,10 +8,10 @@ const DiscountApplyer = () => {
       <p className="text-[16px] text-gray-900 font-semibold">Apply Discount</p>
       <div className="w-full flex items-center gap-4">
         <Input
-          className="h-[48px] rounded-[30px] border-none outline-none ring-0 bg-gray-50 placeholder:text-gray-400 px-5"
+          className="h-[48px] rounded-[30px] border-none outline-none ring-0 bg-gray-50 placeholder:text-gray-400 px-5 placeholder:text-xs"
           placeholder="Enter Coupon Code"
         />
-        <Button className="h-[48px] rounded-[30px] bg-red-600 text-white hover:bg-red-600/90 font-semibold text-[16px]">
+        <Button className="h-[48px] rounded-[30px] bg-red-600 text-white hover:bg-red-600/90 font-semibold text-[16px] px-8">
           Apply
         </Button>
       </div>
