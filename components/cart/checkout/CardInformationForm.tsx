@@ -85,16 +85,16 @@ const CardInformationForm = () => {
                 <Button
                   variant={"outline"}
                   className={cn(
-                    "w-full h-14 text-left font-normal",
+                    "w-full h-14 text-left font-normal flex items-center gap-2 md:justify-between",
                     !expiryDate && "text-muted-foreground"
                   )}
                 >
                   {expiryDate ? (
                     format(expiryDate, "MM/yyyy")
                   ) : (
-                    <span>Pick expiry date</span>
+                    <span className="text-xs">Pick expiry date</span>
                   )}
-                  <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                  <CalendarIcon className="ml-8 md:ml-auto h-4 w-4 opacity-50" />
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start">

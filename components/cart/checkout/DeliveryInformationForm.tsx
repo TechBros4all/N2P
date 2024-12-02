@@ -10,7 +10,7 @@ const DeliveryInformationForm = () => {
         Delivery Information
       </h1>
       <div className="flex flex-col gap-5">
-        <div className="w-full flex items-center gap-5">
+        <div className="w-full flex flex-col md:flex-row items-center gap-5 md:gap-3">
           <div className="w-full">
             <Label htmlFor="firstName">First Name</Label>
             <Input type="text" id="firstName" placeholder="Placeholder" />
@@ -34,7 +34,7 @@ const DeliveryInformationForm = () => {
             <Input type="number" id="zipCode" placeholder="Placeholder" />
           </div>
         </div>
-        <div className="w-full flex items-center gap-5">
+        <div className="w-full flex flex-col md:flex-row items-center gap-5 md:gap-3">
           <div className="w-full">
             <Label htmlFor="mobileNumber">Mobile Number</Label>
             <Input type="number" id="mobileNumber" placeholder="Placeholder" />
@@ -44,12 +44,14 @@ const DeliveryInformationForm = () => {
             <Input type="email" id="email" placeholder="Placeholder" />
           </div>
         </div>
-        <Button
-          className="bg-red-600 hover:bg-red-600/90 max-w-[330px] rounded-[30px]"
-          size="lg"
-        >
-          Submit
-        </Button>
+        <div className="w-full pt-8">
+          <Button
+            className="bg-red-600 hover:bg-red-600/90 w-full rounded-[30px]"
+            size="lg"
+          >
+            Submit
+          </Button>
+        </div>
       </div>
     </div>
   );

@@ -38,7 +38,7 @@ const CheckoutPage = () => {
           </BreadcrumbList>
         </Breadcrumb>
         <div className="w-full flex flex-col lg:flex-row gap-8">
-          <div className="w-full max-w-[740px] flex flex-col gap-8">
+          <div className="w-full lg:max-w-[600px] xl:max-w-[740px] flex flex-col gap-8">
             <OrderSummary />
             <DeliveryInformationForm />
           </div>

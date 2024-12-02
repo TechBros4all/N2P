@@ -34,12 +34,12 @@ const ProfilePage = () => {
             >
               Inbox
             </TabsTrigger>
-            <TabsTrigger
+            {/* <TabsTrigger
               className="w-full items-start justify-start data-[state=active]:bg-red-100 hover:bg-red-50 transition-all duration-500 ease-in-out"
               value="settings"
             >
               Account Settings
-            </TabsTrigger>
+            </TabsTrigger> */}
           </TabsList>
           <div className="flex-1 h-full overflow-y-scroll scrollbar-hide">
             <Separator className="h-2 md:hidden" />

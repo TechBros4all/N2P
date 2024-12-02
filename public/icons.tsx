@@ -1,4 +1,4 @@
-interface IconProps {
+interface IconProps extends React.SVGProps<SVGSVGElement> {
   color?: string;
   width?: number;
   height?: number;
